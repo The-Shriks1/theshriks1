@@ -1,0 +1,176 @@
+THE SHRIKS — OVERVIEW / BRIEFING PAGE
+Full content dump (scraped from BriefingSection.tsx before reset)
+=========================================================
+
+[HERO]
+
+We engineer what others will not.
+
+THE VENTURE
+THE SHRIKS is a deep technology venture based in India, structured as two
+interdependent divisions operating under a single production standard.
+One division delivers production-grade engineering for funded ventures
+worldwide. The other develops and ships a proprietary product line — the fleet.
+
+THE MODEL
+Revenue from client engagements funds product R&D. Product work raises
+the engineering ceiling on client delivery. Both halves feed each other.
+No prototypes. No simulations. Production or nothing. Based in India,
+delivering remotely to clients worldwide.
+
+---------------------------------------------------------
+
+[TWO DIVISIONS / ONE STANDARD]
+
+SECTOR A — Client Engineering
+Production-grade full-stack systems for funded ventures. Architecture-first
+delivery to companies operating at scale — across software, AI/ML, cloud
+infrastructure, blockchain, and cinematic production.
+Tags: REMOTE · FUNDED VENTURES · PRODUCTION-GRADE
+
+SECTOR B — In-House Products
+The fleet — a proprietary product line shipped under the venture's own name.
+Each product arrives as a distinct vessel. LokiAI is Ship I. Two more are in
+the manifest. Distinct architecture, distinct arrival, same command signature.
+Tags: THE FLEET · PROPRIETARY · 3 VESSELS
+
+Connecting line:
+Client revenue funds product R&D · Product work raises the engineering ceiling · Both halves feed each other
+
+---------------------------------------------------------
+
+[STATS ROW]
+
+06 — Engineering Disciplines
+04 — Broadcast Channels
+03 — Fleet Vessels
+01 — Production Standard
+
+---------------------------------------------------------
+
+[ENGINEERING DISCIPLINES] — "06 Active Verticals"
+
+Engagements are scoped exclusively to domains where sustained depth compounds
+into a measurable advantage. The venture accepts fewer briefs — those it accepts
+are delivered to production standard.
+
+I. Custom Software Engineering
+Production-grade full-stack systems for funded ventures. Architecture-first,
+delivered to deployment — not prototyped and abandoned.
+
+II. AI / ML Systems
+Multi-agent orchestration, model pipeline architecture, edge-inference
+deployment, and applied AI tooling at production scale.
+
+III. Cloud & Platform Engineering
+Scalable cloud architecture, CI/CD automation, container orchestration,
+and production-grade infrastructure built for zero-downtime delivery.
+
+IV. Blockchain Engineering
+Smart contract development, decentralised protocol architecture, and
+on-chain systems engineering.
+
+V. Content & Media Production
+Strategic UGC, brand editorial, technical breakdowns, and creator-format
+content — engineered for reach and produced to cinematic standard.
+
+VI. Cinematic Production
+AI-driven cinematic video, brand films, and trailer-format launch sequences
+— held to the same precision standard as the engineering.
+
+---------------------------------------------------------
+
+[VENTURE ARCHITECTURE] — "Operating Model"
+
+The schematic below is not decorative. It is the operating model of the
+venture — two sectors feeding a single command node, with four broadcast
+channels sustaining visibility across all outputs.
+
+Legend:
+- Discipline Node (square)
+- Fleet Vessel (hexagon)
+- Data Flow (line + dot)
+
+[Diagram itself — VentureDiagram component — kept, not text content]
+
+---------------------------------------------------------
+
+[OPERATIONAL METHOD] — "04 Phases"
+
+01. SCOPE — Architecture and constraints are formalised before any code is written.
+02. BUILD — Production-grade from the first commit. Structural failure is rebuilt, not patched.
+03. SHIP — Cinematic-grade launch sequence coordinated across all broadcast channels.
+04. HOLD — Documentation delivered as a first-class artefact. Standards maintained over time.
+
+---------------------------------------------------------
+
+[BROADCAST CHANNELS] — "04 Standing Signals"
+
+Content production is an operational function of the venture — not a peripheral
+activity. Four dedicated channels, each serving a distinct purpose in the
+communication architecture.
+
+CH·01 — FOUNDER (Instagram · Public)
+The personal channel of the founding Commander. Craft process, editorial work,
+and unfiltered perspective.
+
+CH·02 — THE SHRIKS (Instagram · Primary)
+The official venture account. Brand films, product launches, fleet arrival
+sequences, and cinematic releases.
+
+CH·03 — LOKIAI (Instagram · Product)
+Dedicated signal channel for Ship I. Development progress, live demonstrations,
+and technical milestones.
+
+CH·04 — TIMES.THESHRIKS (Content · Editorial)
+The editorial and UGC arm. Technical breakdowns, build documentation, tool
+reviews, and creator-format content.
+
+---------------------------------------------------------
+
+[ENQUIRIES / FAQ] — "Frequently Received"
+
+Q: What is THE SHRIKS?
+A: An independent deep technology venture operating as two unified divisions:
+external engineering services for funded ventures and an internally developed
+product line — both governed by the same production standard.
+
+Q: Who leads the venture?
+A: Two Commanders at equal rank. Shrusti leads frontend development,
+AI-driven cinematic production, and creative direction. Laukik leads
+engineering, systems architecture, and platform delivery. There is no
+hierarchy between them.
+
+Q: Where is THE SHRIKS based?
+A: India. All engagements are delivered remotely. Geography does not
+constrain the scope or standard of the work.
+
+Q: What is the fleet?
+A: The venture operates as a mothership. Each product shipped is a distinct
+vessel within its fleet, arriving with its own launch sequence, its own
+visual identity, and its own technical architecture. LokiAI is Ship I.
+
+Q: Why monochrome?
+A: Visual restraint enforces consistency across every medium and format.
+The single green accent is reserved exclusively for LokiAI — it is a
+product signal, not a brand colour.
+
+Q: What do the masks represent?
+A: Parity. Both Commanders wear the same mask — a uniform, not a disguise.
+The work and the venture precede individual visibility.
+
+Q: Does THE SHRIKS accept external engagements?
+A: The venture remains actively available for client work alongside its
+in-house product line. Enquiries are received through the Transmit channel.
+
+Q: What is the current status of LokiAI?
+A: The announcement trailer has been released. The platform is in active
+development. The Mobius autonomous agent system and a free-tier desktop
+configuration are part of the current build.
+
+---------------------------------------------------------
+
+[CLOSE-OUT]
+
+END BRIEFING · 02 / 07
+PROCEED TO THE FLEET →
