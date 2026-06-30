@@ -40,6 +40,7 @@ export function Emblem({
         width: size,
         height: h,
         overflow: "hidden",
+        mixBlendMode: "screen", // Removes black background!
       }}
       aria-label="THE SHRIKS emblem"
     >
@@ -49,7 +50,11 @@ export function Emblem({
         fill
         sizes={`${size}px`}
         priority={size > 80}
-        style={{ objectFit: "contain", objectPosition: "center" }}
+        style={{ 
+          objectFit: "contain", 
+          objectPosition: "center",
+          transform: "scale(1.6)" // Scales up the tiny logo to match the original size
+        }}
       />
     </motion.span>
   );
