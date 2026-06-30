@@ -24,7 +24,7 @@ export function Emblem({
   variant,
 }: Props) {
   const reduce = useReducedMotion();
-  const src = "/brand/shriks-logo.png";
+  const src = "/brand/shriks-mask-new.png";
   const ratio = 389 / 475;
   const h = size / ratio;
 
