@@ -37,7 +37,7 @@ export function BroadcastSection() {
         <Reveal>
           <div className="border border-rule p-10 md:p-14 flex flex-col md:flex-row items-center gap-10 md:gap-14">
             <OriginSeal size={130} />
-            <div className="flex-1 md:border-l border-rule md:pl-14">
+            <div className="flex-1 border-t pt-10 md:border-t-0 md:border-l border-rule md:pt-0 md:pl-14 w-full">
               <div className="mono caps text-[10px] text-signal/40 tracking-[0.2em] mb-4">ORIGIN</div>
               <p className="text-signal/75 leading-relaxed text-[17px] max-w-[52ch]">{MANIFEST_BODY.origin.body}</p>
             </div>

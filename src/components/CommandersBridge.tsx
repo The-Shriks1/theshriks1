@@ -39,7 +39,7 @@ export function CommandersBridge() {
         transition={{ duration: 1, delay: 0.9 }}
         className="absolute bottom-28 left-0 right-0 px-8 md:px-14 text-center"
       >
-        <h1 className="caps text-5xl md:text-7xl tracking-tight drop-shadow-[0_2px_24px_rgba(0,0,0,0.5)]">
+        <h1 className="caps text-[32px] sm:text-5xl md:text-7xl tracking-tight drop-shadow-[0_2px_24px_rgba(0,0,0,0.5)]">
           COMMANDERS&apos; BRIDGE
         </h1>
         <div className="mono caps text-[10px] text-signal/70 mt-4">LAUKIK · SHRUSTI</div>

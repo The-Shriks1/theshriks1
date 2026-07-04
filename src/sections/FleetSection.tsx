@@ -35,15 +35,15 @@ export function FleetSection() {
               its own arrival, its own dossier. Open a hangar to enter.
             </p>
           </Reveal>
-          <div className="col-span-12 md:col-span-3 h-[240px] relative">
-            <div className="absolute right-0 md:-right-8 top-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px]">
+          <div className="col-span-12 md:col-span-3 h-[200px] md:h-[240px] relative overflow-hidden md:overflow-visible my-6 md:my-0">
+            <div className="absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-0 md:-right-8 top-1/2 -translate-y-1/2 w-[240px] h-[240px] md:w-[400px] md:h-[400px]">
               <ShipModel3D slug="classified-iii" rotate={false} />
             </div>
           </div>
         </div>
 
         {/* FLEET INDEX STRIP */}
-        <div className="grid grid-cols-12 gap-x-8 pt-10 pb-4 border-t border-rule mono caps text-[10px] text-signal/50 tracking-[0.22em]">
+        <div className="hidden md:grid grid-cols-12 gap-x-8 pt-10 pb-4 border-t border-rule mono caps text-[10px] text-signal/50 tracking-[0.22em]">
           <div className="col-span-2">SHIP</div>
           <div className="col-span-3">CODENAME</div>
           <div className="col-span-4">TAGLINE</div>
@@ -87,7 +87,7 @@ function ShipDossier({ ship, index }: { ship: FleetShip; index: number }) {
 
         {/* name + tagline */}
         <div className="col-span-12 md:col-span-4">
-          <div className="caps leading-[0.92] tracking-tight" style={{ fontSize: "clamp(40px, 5.4vw, 84px)" }}>
+          <div className="caps leading-[0.92] tracking-tight" style={{ fontSize: "clamp(28px, 5.4vw, 84px)" }}>
             <span className={live ? "text-signal" : "text-signal/30"}>{ship.name}</span>
           </div>
           <div className="mono caps text-[10px] text-signal/40 mt-3 tracking-[0.28em]">{ship.codename}</div>

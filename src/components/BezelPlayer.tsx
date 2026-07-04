@@ -263,12 +263,12 @@ export function BezelPlayer() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -5 }}
                     transition={{ duration: 1 }}
-                    className="absolute top-6 left-8 z-30 pointer-events-none"
+                    className="absolute top-3 left-4 md:top-6 md:left-8 z-30 pointer-events-none"
                   >
-                    <div className="caps text-signal text-[18px] md:text-[24px] tracking-wide font-medium drop-shadow-md">
+                    <div className="caps text-signal text-[12px] sm:text-[18px] md:text-[24px] tracking-wide font-medium drop-shadow-md">
                       {selectedVideo.name}
                     </div>
-                    <div className="mono text-signal/70 text-[10px] tracking-[0.2em] mt-1 drop-shadow-md">
+                    <div className="mono text-signal/70 text-[8px] md:text-[10px] tracking-[0.2em] mt-1 drop-shadow-md">
                       {selectedVideo.status}
                     </div>
                   </motion.div>
@@ -295,9 +295,9 @@ export function BezelPlayer() {
                     initial={{ opacity: 0, y: 5 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
-                    className="absolute bottom-5 inset-x-8 flex justify-center pointer-events-none z-20"
+                    className="absolute bottom-2 md:bottom-5 inset-x-4 md:inset-x-8 flex justify-center pointer-events-none z-20"
                   >
-                    <span className="mono text-[10px] sm:text-[11px] caps tracking-[0.18em] text-signal bg-obsidian/85 px-4 py-2 border border-rule rounded-sm backdrop-blur-md shadow-lg text-center max-w-[85%] border-l-2 border-l-signal/60">
+                    <span className="mono text-[8px] sm:text-[10px] md:text-[11px] caps tracking-[0.12em] sm:tracking-[0.18em] text-signal bg-obsidian/85 px-2 py-1 md:px-4 md:py-2 border border-rule rounded-sm backdrop-blur-md shadow-lg text-center max-w-[90%] border-l-2 border-l-signal/60">
                       {currentCaption}
                     </span>
                   </motion.div>
@@ -340,37 +340,49 @@ export function BezelPlayer() {
         </div>
 
         {/* Video Controls Panel */}
-        <div className="w-full mt-4 bg-[#0a0a0a] border border-rule rounded-xl p-4 flex flex-col gap-3">
-          <div className="flex items-center gap-4">
-            {/* Play/Pause Button */}
-            <button
-              onClick={handlePlayPause}
-              className="w-10 h-10 flex items-center justify-center rounded-lg border border-rule hover:border-signal/50 text-signal/80 hover:text-signal bg-obsidian transition-colors text-xs"
-            >
-              {isPlaying ? <PauseIcon /> : <PlayIcon />}
-            </button>
+        <div className="w-full mt-4 bg-[#0a0a0a] border border-rule rounded-xl p-4 flex flex-col gap-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            
+            {/* Buttons Row (centered on mobile, normal on desktop) */}
+            <div className="flex items-center justify-center sm:justify-start gap-4">
+              {/* Play/Pause Button */}
+              <button
+                onClick={handlePlayPause}
+                className="w-10 h-10 flex items-center justify-center rounded-lg border border-rule hover:border-signal/50 text-signal/80 hover:text-signal bg-obsidian transition-colors text-xs"
+              >
+                {isPlaying ? <PauseIcon /> : <PlayIcon />}
+              </button>
 
-            {/* Restart Button */}
-            <button
-              onClick={handleRestart}
-              className="w-10 h-10 flex items-center justify-center rounded-lg border border-rule hover:border-signal/50 text-signal/80 hover:text-signal bg-obsidian transition-colors text-xs"
-              title="Restart"
-            >
-              <RestartIcon />
-            </button>
+              {/* Restart Button */}
+              <button
+                onClick={handleRestart}
+                className="w-10 h-10 flex items-center justify-center rounded-lg border border-rule hover:border-signal/50 text-signal/80 hover:text-signal bg-obsidian transition-colors text-xs"
+                title="Restart"
+              >
+                <RestartIcon />
+              </button>
 
-            {/* Next Video Button */}
-            <button
-              onClick={handleNext}
-              className="w-10 h-10 flex items-center justify-center rounded-lg border border-rule hover:border-signal/50 text-signal/80 hover:text-signal bg-obsidian transition-colors text-xs"
-              title="Next Video"
-            >
-              <NextIcon />
-            </button>
+              {/* Next Video Button */}
+              <button
+                onClick={handleNext}
+                className="w-10 h-10 flex items-center justify-center rounded-lg border border-rule hover:border-signal/50 text-signal/80 hover:text-signal bg-obsidian transition-colors text-xs"
+                title="Next Video"
+              >
+                <NextIcon />
+              </button>
 
-            {/* Progress Slider */}
+              {/* Mobile Volume Toggle */}
+              <button
+                onClick={handleMuteToggle}
+                className="w-10 h-10 sm:hidden flex items-center justify-center rounded-lg border border-rule hover:border-signal/50 text-signal/80 hover:text-signal bg-obsidian transition-colors text-xs"
+              >
+                {isMuted ? <VolumeMuteIcon /> : <VolumeHighIcon />}
+              </button>
+            </div>
+
+            {/* Progress Slider (takes full width on mobile, fills remaining space on desktop) */}
             <div className="flex-1 flex items-center gap-3">
-              <span className="mono text-[10px] text-signal/50 tabular-nums">{formatTime(currentTime)}</span>
+              <span className="mono text-[10px] text-signal/50 tabular-nums shrink-0">{formatTime(currentTime)}</span>
               <input
                 type="range"
                 min="0"
@@ -382,13 +394,13 @@ export function BezelPlayer() {
                   background: `linear-gradient(to right, rgba(242, 242, 242, 0.4) 0%, rgba(242, 242, 242, 0.4) ${(currentTime / (duration || 100)) * 100}%, rgba(242, 242, 242, 0.08) ${(currentTime / (duration || 100)) * 100}%, rgba(242, 242, 242, 0.08) 100%)`
                 }}
               />
-              <span className="mono text-[10px] text-signal/50 tabular-nums">{formatTime(duration)}</span>
+              <span className="mono text-[10px] text-signal/50 tabular-nums shrink-0">{formatTime(duration)}</span>
             </div>
 
-            {/* Volume Toggle */}
+            {/* Desktop Volume Toggle */}
             <button
               onClick={handleMuteToggle}
-              className="w-10 h-10 flex items-center justify-center rounded-lg border border-rule hover:border-signal/50 text-signal/80 hover:text-signal bg-obsidian transition-colors text-xs"
+              className="hidden sm:flex w-10 h-10 items-center justify-center rounded-lg border border-rule hover:border-signal/50 text-signal/80 hover:text-signal bg-obsidian transition-colors text-xs shrink-0"
             >
               {isMuted ? <VolumeMuteIcon /> : <VolumeHighIcon />}
             </button>

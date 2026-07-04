@@ -40,15 +40,15 @@ export function HUD() {
         <div className="text-signal/40 mt-1">{meta.status}</div>
       </div>
 
-      <div className="fixed bottom-5 right-5 z-40 mono caps text-[10px] text-signal/70 select-none flex items-center gap-5">
+      <div className="fixed bottom-5 right-5 z-40 mono caps text-[10px] text-signal/70 select-none flex items-center gap-3">
         <span suppressHydrationWarning className="tabular-nums text-signal">{time}</span>
-        <span className="text-signal/40">UTC</span>
+        <span className="hidden sm:inline text-signal/40">UTC</span>
         <span className="text-signal/30">·</span>
         <button onClick={toggle} aria-pressed={on} aria-label="Toggle ambient sound" className="hover:text-signal transition-colors">
           SOUND {on ? "ON" : "OFF"}
         </button>
-        <span className="text-signal/30">·</span>
-        <span className="text-signal/40">{SITE.version}</span>
+        <span className="hidden sm:inline text-signal/30">·</span>
+        <span className="hidden sm:inline text-signal/40">{SITE.version}</span>
       </div>
     </>
   );

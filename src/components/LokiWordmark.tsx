@@ -21,7 +21,13 @@ export function LokiWordmark({
       initial={reduce || !animated ? false : { opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2, ease: [0.65, 0, 0.35, 1] }}
-      style={{ display: "inline-block", position: "relative", width: size, height: h }}
+      style={{
+        display: "inline-block",
+        position: "relative",
+        width: "100%",
+        maxWidth: size,
+        aspectRatio: "909 / 405",
+      }}
       aria-label="LokiAI wordmark"
     >
       <Image

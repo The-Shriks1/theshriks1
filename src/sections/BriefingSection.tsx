@@ -26,7 +26,7 @@ function HeroBlock() {
       <Reveal>
         <h2
           className="caps leading-[0.86] tracking-tight font-medium"
-          style={{ fontSize: "clamp(52px, 10vw, 160px)" }}
+          style={{ fontSize: "clamp(40px, 10vw, 160px)" }}
         >
           <TextReveal as="span" text="We engineer" />
           <br />
@@ -161,7 +161,13 @@ function StatRow() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: idx * 0.1, ease: [0.65, 0, 0.35, 1] }}
-          className={`py-10 md:py-14 px-6 md:px-8 ${idx > 0 ? "border-l border-rule" : ""}`}
+          className={`py-10 md:py-14 px-6 md:px-8 border-rule ${
+            idx % 2 !== 0 ? "border-l" : "border-l-0"
+          } ${
+            idx >= 2 ? "border-t" : "border-t-0"
+          } md:border-t-0 md:border-l ${
+            idx === 0 ? "md:border-l-0" : ""
+          }`}
         >
           <span
             className="block caps text-signal font-medium leading-none tabular-nums"

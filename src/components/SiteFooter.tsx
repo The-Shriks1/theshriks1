@@ -53,7 +53,7 @@ export function SiteFooter() {
         </div>
 
         <div className="overflow-hidden py-4 md:py-6">
-          <div className="caps font-medium leading-[0.78] tracking-tight text-signal text-center whitespace-nowrap" style={{ fontSize: "clamp(60px, 13vw, 220px)" }}>
+          <div className="caps font-medium leading-[0.78] tracking-tight text-signal text-center whitespace-nowrap" style={{ fontSize: "clamp(36px, 13vw, 220px)" }}>
             THE SHRIKS
           </div>
         </div>
