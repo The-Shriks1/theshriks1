@@ -1,7 +1,7 @@
 "use client";
 
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Bounds, useGLTF, useAnimations } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { Bounds, useGLTF, useAnimations, View, PerspectiveCamera } from "@react-three/drei";
 import { Suspense, useEffect, useRef } from "react";
 import * as THREE from "three";
 
@@ -36,14 +36,15 @@ useGLTF.preload(WARSHIP_MODEL_SRC);
 export function MothershipMark() {
   return (
     <div className="w-full h-full">
-      <Canvas camera={{ position: [0, 0.4, 4.2], fov: 36 }} gl={{ antialias: true, alpha: true }}>
+      <View className="w-full h-full">
+        <PerspectiveCamera makeDefault position={[0, 0.4, 4.2]} fov={36} />
         <ambientLight intensity={0.4} />
         <directionalLight position={[2, 3, 4]} intensity={1.1} />
         <directionalLight position={[-3, -1, 2]} intensity={0.3} color="#9ab" />
         <Suspense fallback={null}>
           <Hull />
         </Suspense>
-      </Canvas>
+      </View>
     </div>
   );
 }

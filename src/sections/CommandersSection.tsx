@@ -13,28 +13,14 @@ export function CommandersSection() {
       <CommandersBridge />
 
       <GridShell>
-        <div className="grid grid-cols-12 gap-x-8 gap-y-10 pt-28 md:pt-40 pb-20">
-          <div className="col-span-12 md:col-span-3 mono caps text-[10px] text-signal/50 tracking-[0.2em]">
-            <div>SECTION · 04</div>
-            <div className="mt-1 text-signal/35">BRIDGE</div>
-          </div>
-          <Reveal className="col-span-12 md:col-span-9">
-            <h2 className="caps text-[44px] md:text-[96px] leading-[0.95] tracking-tight font-medium max-w-[16ch]">
-              Two Commanders. <span className="text-signal/55 italic font-light">Equal rank.</span>
-            </h2>
-            <p className="mt-10 max-w-[52ch] text-signal/65 leading-relaxed text-[17px]">
-              Identical masks. Identical posture. A partnership of two disciplines that meet in the middle —
-              not a hierarchy of founder and co-founder.
-            </p>
-          </Reveal>
-        </div>
+
 
         {/* PROFILES */}
         <div className="grid md:grid-cols-2 gap-px bg-rule border-y border-rule">
           {COMMANDERS.map((c, idx) => (
             <article key={c.name} className="bg-obsidian p-8 md:p-12 flex flex-col gap-7">
               <div className="flex items-baseline justify-between mono caps text-[10px] tracking-[0.22em]">
-                <span className="text-signal/40">OFFICER · {String(idx + 1).padStart(2, "0")}</span>
+                <span className="text-signal/40">COMMANDER · {String(idx + 1).padStart(2, "0")}</span>
                 <span className="text-signal/60">{c.rank}</span>
               </div>
               <div className="relative flex items-end gap-6">
@@ -42,9 +28,11 @@ export function CommandersSection() {
               </div>
               <div className="mono caps text-[11px] text-signal/55 tracking-[0.22em]">{c.role}</div>
               <p className="text-signal/70 leading-relaxed text-[15px] max-w-[42ch]">{c.body}</p>
-              <div className="mt-auto pt-7 border-t border-rule mono caps text-[10px] text-signal/45 tracking-[0.18em]">
-                {c.note}
-              </div>
+              {c.note && (
+                <div className="mt-auto pt-7 border-t border-rule mono caps text-[10px] text-signal/45 tracking-[0.18em]">
+                  {c.note}
+                </div>
+              )}
             </article>
           ))}
         </div>

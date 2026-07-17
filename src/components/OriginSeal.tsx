@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-export function OriginSeal({ size = 140 }: { size?: number }) {
+export function OriginSeal({ size = 140, day = "22", month = "FEBRUARY" }: { size?: number, day?: string, month?: string }) {
   return (
     <motion.svg
       viewBox="0 0 140 140"
@@ -23,9 +23,9 @@ export function OriginSeal({ size = 140 }: { size?: number }) {
         transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
         style={{ transformOrigin: "70px 70px" }}
       />
-      <text x="70" y="63" textAnchor="middle" className="caps" fontSize="22" fontWeight="600" fill="currentColor">22</text>
+      <text x="70" y="63" textAnchor="middle" className="caps" fontSize="22" fontWeight="600" fill="currentColor">{day}</text>
       <text x="70" y="84" textAnchor="middle" className="mono caps" fontSize="9" fill="currentColor" opacity="0.65" letterSpacing="0.15em">
-        FEBRUARY
+        {month.toUpperCase()}
       </text>
     </motion.svg>
   );

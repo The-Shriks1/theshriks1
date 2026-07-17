@@ -12,7 +12,7 @@ export const NAV: { href: string; label: string; index: string; kind: NavKind }[
   { href: "#overview", label: "Overview", index: "02", kind: "anchor" },
   { href: "#fleet", label: "Fleet", index: "03", kind: "anchor" },
   { href: "#commanders", label: "Commanders", index: "04", kind: "anchor" },
-  { href: "#broadcast", label: "Broadcast", index: "05", kind: "anchor" },
+  { href: "#broadcast", label: "The Manifest", index: "05", kind: "anchor" },
   { href: "#transmit", label: "Transmit", index: "06", kind: "anchor" },
   { href: "#the-shriks", label: "The Shriks", index: "07", kind: "anchor" },
 ];
@@ -23,7 +23,7 @@ export const PAGES: Record<string, { index: string; codename: string; status: st
   overview: { index: "02", codename: "BRIEFING", status: "SIGNAL CLEAR" },
   fleet: { index: "03", codename: "THE FLEET", status: "1 / 3 ARRIVED" },
   commanders: { index: "04", codename: "COMMANDERS' BRIDGE", status: "TWO SEATED" },
-  broadcast: { index: "05", codename: "BROADCAST", status: "PLAYBACK SIGNAL ACTIVE" },
+  broadcast: { index: "05", codename: "THE MANIFEST", status: "PLAYBACK SIGNAL ACTIVE" },
   transmit: { index: "06", codename: "TRANSMIT", status: "CHANNEL OPEN" },
   "the-shriks": { index: "07", codename: "THE SHRIKS", status: "PLAYBACK" },
   "ship-lokiai": { index: "SHIP·I", codename: "LOKIAI HANGAR", status: "LIVE · IN BUILD" },
@@ -155,14 +155,12 @@ export const COMMANDERS = [
     name: "SHRUSTI",
     role: "Frontend · AI · Creative Direction",
     body: "Leads frontend development, AI-driven cinematic production, and creative direction across product and brand. Architects the interface layer users interact with, directs AI video production from prompt engineering through post, and governs the visual identity of every asset the venture publishes.",
-    note: "Partner in venture. Partner in life.",
   },
   {
     rank: "FOUNDER",
     name: "LAUKIK",
-    role: "Engineering · Production",
+    role: "AI ENGINEER · BLOCKCHAIN DEVELOPER · SYSTEM ARCHITECTURE",
     body: "Leads full-stack engineering and systems architecture. AI/ML pipelines, blockchain infrastructure, cloud platforms, and production delivery. Primary architect of LokiAI — from multi-agent orchestration to the autonomous ML agent system that powers it.",
-    note: "B.Tech, Charutar Vidya Mandal University.",
   },
 ];
 

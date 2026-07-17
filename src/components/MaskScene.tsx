@@ -1,7 +1,7 @@
 "use client";
 
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { OrbitControls, View, PerspectiveCamera } from "@react-three/drei";
 import { Suspense, useMemo, useRef } from "react";
 import * as THREE from "three";
 
@@ -60,21 +60,17 @@ function MaskGeometry({ x }: { x: number }) {
 
 export function MaskScene() {
   return (
-    <Canvas
-      shadows
-      camera={{ position: [0, 0, 5.5], fov: 38 }}
-      gl={{ antialias: true }}
-      style={{ position: "absolute", inset: 0 }}
-    >
+    <View className="absolute inset-0">
+      <PerspectiveCamera makeDefault position={[0, 0, 5.5]} fov={38} />
       <color attach="background" args={["#0a0a0a"]} />
       <ambientLight intensity={0.35} />
-      <directionalLight position={[3, 4, 5]} intensity={1.2} castShadow />
+      <directionalLight position={[3, 4, 5]} intensity={1.2} />
       <directionalLight position={[-3, -2, 4]} intensity={0.5} color="#9aa" />
       <Suspense fallback={null}>
         <MaskGeometry x={-1.45} />
         <MaskGeometry x={1.45} />
       </Suspense>
       <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
-    </Canvas>
+    </View>
   );
 }

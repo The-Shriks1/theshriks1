@@ -1,7 +1,7 @@
 "use client";
 
-import { Canvas, useFrame } from "@react-three/fiber";
-import { ContactShadows, Bounds, useGLTF, useAnimations } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { ContactShadows, Bounds, useGLTF, useAnimations, View, PerspectiveCamera } from "@react-three/drei";
 import { Suspense, useEffect, useRef } from "react";
 import * as THREE from "three";
 
@@ -73,12 +73,8 @@ useGLTF.preload(WARSHIP_MODEL_SRC);
 export function ShipModel3D({ slug, rotate = true, scale = 1 }: { slug: string; rotate?: boolean; scale?: number }) {
   const isLoki = slug === "lokiai";
   return (
-    <Canvas
-      shadows
-      camera={{ position: [0, 0.4, 4.2], fov: 32 }}
-      gl={{ antialias: true, alpha: true }}
-      dpr={[1, 2]}
-    >
+    <View className="w-full h-full">
+      <PerspectiveCamera makeDefault position={[0, 0.4, 4.2]} fov={32} />
       <ambientLight intensity={0.45} />
       <directionalLight position={[2.5, 3, 4]} intensity={1.2} castShadow shadow-mapSize={[1024, 1024]} />
       <directionalLight position={[-3, -1, 2]} intensity={0.45} color="#9ab" />
@@ -86,6 +82,6 @@ export function ShipModel3D({ slug, rotate = true, scale = 1 }: { slug: string; 
         {isLoki ? <HullLoki rotate={rotate} scale={scale} /> : <HullClassified rotate={rotate} scale={scale} />}
         <ContactShadows position={[0, -1.6, 0]} opacity={0.55} blur={3.2} far={5} resolution={512} color="#000" />
       </Suspense>
-    </Canvas>
+    </View>
   );
 }

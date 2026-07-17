@@ -14,12 +14,12 @@ export function TypeScape() {
 
   const xLeft = useTransform(scrollYProgress, [0, 1], ["-2vw", "-22vw"]);
   const xRight = useTransform(scrollYProgress, [0, 1], ["2vw", "22vw"]);
-  const opacity = useTransform(scrollYProgress, [0.0, 0.2, 0.8, 1], [0, 1, 1, 0.4]);
+  const opacity = useTransform(scrollYProgress, [0.0, 0.2, 0.8, 1], [0, 1, 1, 0]);
   const blur = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [4, 0, 0, 6]);
   const rule = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <SectionShell id="typescape" minH="min-h-[140vh]" className="bg-obsidian">
+    <SectionShell id="typescape" minH="min-h-[140vh]" className="bg-obsidian overflow-hidden">
       <div ref={ref as unknown as React.RefObject<HTMLDivElement>} className="absolute inset-0">
         <motion.div
           style={{ opacity }}

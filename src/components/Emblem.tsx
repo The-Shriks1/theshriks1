@@ -24,8 +24,8 @@ export function Emblem({
   variant,
 }: Props) {
   const reduce = useReducedMotion();
-  const src = "/brand/spaceship-logo.png";
-  const ratio = 389 / 475;
+  const src = "/brand/shriks-logo-transparent.png";
+  const ratio = 694 / 892;
   const h = size / ratio;
 
   return (
@@ -40,7 +40,6 @@ export function Emblem({
         width: size,
         height: h,
         overflow: "hidden",
-        mixBlendMode: "screen", // Removes black background!
       }}
       aria-label="THE SHRIKS emblem"
     >
@@ -53,7 +52,6 @@ export function Emblem({
         style={{ 
           objectFit: "contain", 
           objectPosition: "center",
-          transform: "scale(1.6)" // Scales up the tiny logo to match the original size
         }}
       />
     </motion.span>

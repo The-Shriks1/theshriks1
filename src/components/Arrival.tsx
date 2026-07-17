@@ -20,7 +20,7 @@ export function Arrival() {
       {/* Mothership video */}
       <video
         ref={videoRef}
-        src="/videos/mothership.mp4"
+        src="/videos/Timeline-1.mp4"
         autoPlay
         muted
         loop

@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode, useRef, useState, useEffect } from "react";
+import { useScroll } from "framer-motion";
 
 /**
  * Full-bleed looping background video hero.
@@ -37,6 +38,37 @@ export function PlayableHero({
       });
     }
   }, []);
+
+  const { scrollYProgress } = useScroll();
+
+  // Scroll-linked volume fade out
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on("change", (latest) => {
+      if (videoRef.current && !isMuted) {
+        // Fade out from 0 to 0.15 scroll depth
+        let vol = 1.0 - (latest / 0.15);
+        if (vol < 0) vol = 0;
+        if (vol > 1) vol = 1;
+        
+        if (typeof latest !== "number" || isNaN(latest)) {
+          vol = 1.0;
+        }
+        
+        videoRef.current.volume = vol;
+      }
+    });
+    
+    // Initial setup in case we mount mid-scroll
+    if (videoRef.current && !isMuted) {
+      const latest = scrollYProgress.get() || 0;
+      let vol = 1.0 - (latest / 0.15);
+      if (vol < 0) vol = 0;
+      if (vol > 1) vol = 1;
+      videoRef.current.volume = vol;
+    }
+
+    return () => unsubscribe();
+  }, [isMuted, scrollYProgress]);
 
   const toggleSound = () => {
     if (videoRef.current) {

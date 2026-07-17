@@ -14,6 +14,7 @@ export function Faq() {
           <button
             key={f.q}
             onClick={() => setOpen(isOpen ? null : i)}
+            onMouseEnter={() => setOpen(i)}
             className="w-full text-left py-7 border-b border-rule group"
             aria-expanded={isOpen}
           >

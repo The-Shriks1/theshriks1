@@ -1,7 +1,7 @@
 "use client";
 
-import { Canvas } from "@react-three/fiber";
-import { Bounds, useGLTF, useAnimations } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { Bounds, useGLTF, useAnimations, View, PerspectiveCamera } from "@react-three/drei";
 import { Suspense, useEffect, useRef } from "react";
 import * as THREE from "three";
 
@@ -32,13 +32,16 @@ useGLTF.preload(MASK_MODEL_SRC);
 
 export function MaskRotor() {
   return (
-    <Canvas camera={{ position: [0, 0, 5.4], fov: 32 }} gl={{ antialias: true, alpha: true }}>
-      <ambientLight intensity={0.4} />
-      <directionalLight position={[3, 4, 5]} intensity={1.3} />
-      <directionalLight position={[-3, -2, 4]} intensity={0.55} color="#88a" />
-      <Suspense fallback={null}>
-        <MaskMesh />
-      </Suspense>
-    </Canvas>
+    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden mix-blend-screen opacity-20">
+      <View className="w-full h-full">
+        <PerspectiveCamera makeDefault position={[0, 0, 5.4]} fov={32} />
+        <ambientLight intensity={0.4} />
+        <directionalLight position={[3, 4, 5]} intensity={1.3} />
+        <directionalLight position={[-3, -2, 4]} intensity={0.55} color="#88a" />
+        <Suspense fallback={null}>
+          <MaskMesh />
+        </Suspense>
+      </View>
+    </div>
   );
 }

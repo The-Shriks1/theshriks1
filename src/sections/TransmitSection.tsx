@@ -13,26 +13,15 @@ export function TransmitSection() {
     <SectionShell id="transmit" minH="min-h-screen" className="bg-obsidian pt-32 md:pt-40 pb-48">
       <SectionGutter index="06" codename="TRANSMIT" />
       <GridShell>
-        {/* HEADER + CONVERGENCE DIAGRAM */}
-        <div className="grid grid-cols-12 gap-x-8 gap-y-10 pb-20 items-center">
-          <Reveal className="col-span-12 md:col-span-7">
-            <div className="mono caps text-[10px] text-signal/40 tracking-[0.2em] mb-6">TRANSMIT</div>
-            <h2 className="caps text-[44px] md:text-[88px] leading-[0.95] tracking-tight font-medium max-w-[16ch]">
-              Open a channel.
-            </h2>
-            <p className="mt-8 max-w-[52ch] text-signal/65 leading-relaxed text-[17px]">
-              One inbox. One reading. Engagement, investment, press, or collaboration —
-              say which it is, and it reaches the same desk.
-            </p>
-            <div className="mt-8 flex items-baseline gap-3 mono caps text-[10px] text-signal/45 tracking-[0.2em]">
-              <span className="text-loki-glow">●</span>
-              <span>CHANNEL OPEN</span>
-            </div>
-          </Reveal>
-          <div className="col-span-12 md:col-span-5 h-[280px] md:h-[320px]">
-            <ConvergenceFlow />
-          </div>
-        </div>
+        {/* DESIGN: STARK MINIMALIST EDITORIAL */}
+        <Reveal className="w-full pt-16 pb-16 border-b border-rule flex flex-col items-start gap-6">
+          <h2 className="caps text-[52px] md:text-[80px] leading-none tracking-tighter font-bold uppercase text-white">
+            OPEN <span className="font-light text-signal/30">INBOX.</span>
+          </h2>
+          <p className="text-signal/75 text-[18px] md:text-[24px] leading-[1.4] font-light max-w-[42ch]">
+            Got something for Engagement, Investment, Press, Collaboration or chaos? We got you and our ships do get shipped.
+          </p>
+        </Reveal>
 
         {/* FORM */}
         <div className="border-t border-rule pt-12">

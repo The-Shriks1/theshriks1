@@ -17,7 +17,7 @@ export default async function ShipPage({ params }: { params: Promise<{ slug: str
   return (
     <>
       <SectionMarker id="ship-classified" />
-      <section className="relative bg-obsidian pt-32 md:pt-40 pb-48 min-h-screen">
+      <section className="relative bg-obsidian pt-20 md:pt-40 pb-24 md:pb-48 min-h-screen">
         <SectionGutter index={`SHIP·${ship.id}`} codename={ship.codename} />
         <GridShell>
           <div className="mb-16 flex items-baseline justify-between mono caps text-[10px] text-signal/45">
@@ -32,7 +32,7 @@ export default async function ShipPage({ params }: { params: Promise<{ slug: str
               <div className="mt-1 text-signal/35">{ship.status}</div>
             </div>
             <div className="col-span-12 md:col-span-9">
-              <h1 className="caps text-[44px] md:text-[96px] leading-[0.95] tracking-tight font-medium max-w-[16ch]">
+              <h1 className="caps text-[36px] md:text-[96px] leading-[0.95] tracking-tight font-medium max-w-[16ch]">
                 {ship.name}
               </h1>
               <p className="mt-10 caps text-[18px] md:text-[24px] text-signal/70 max-w-[30ch]">{ship.tagline}</p>
@@ -45,7 +45,7 @@ export default async function ShipPage({ params }: { params: Promise<{ slug: str
             <div className="grid grid-cols-12 gap-x-8 gap-y-12 items-center">
               <div className="col-span-12 md:col-span-7">
                 <div className="mono caps text-[10px] text-signal/40 mb-4">TRANSMISSION STATUS</div>
-                <h2 className="caps text-[36px] md:text-[56px] leading-[1] tracking-tight max-w-[22ch]">
+                <h2 className="caps text-[32px] md:text-[56px] leading-[1] tracking-tight max-w-[22ch]">
                   Not yet arrived. Details under seal.
                 </h2>
                 <p className="mt-8 max-w-[54ch] text-signal/60 leading-relaxed text-[15px]">

@@ -6,7 +6,7 @@ import { Nav } from "@/components/Nav";
 import { HUD } from "@/components/HUD";
 import { SoundProvider } from "@/components/Sound";
 import { PageFrame } from "@/components/PageFrame";
-import { CustomCursor } from "@/components/CustomCursor";
+import { AppLayoutWrapper } from "@/components/AppLayoutWrapper";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -35,11 +35,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
         <SoundProvider>
-          <CustomCursor />
-          <SmoothScroll />
-          <Nav />
-          <HUD />
-          <PageFrame>{children}</PageFrame>
+          <AppLayoutWrapper>
+            <SmoothScroll />
+            <Nav />
+            <HUD />
+            <PageFrame>{children}</PageFrame>
+          </AppLayoutWrapper>
         </SoundProvider>
       </body>
     </html>

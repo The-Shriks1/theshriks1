@@ -6,38 +6,49 @@ import { Reveal } from "@/components/Reveal";
 import { SectionShell } from "./SectionShell";
 import { SectionGutter, GridShell } from "@/components/Blueprint";
 import dynamic from "next/dynamic";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { TextReveal } from "@/components/TextReveal";
-
+import { useRef } from "react";
 
 const ShipModel3D = dynamic(() => import("@/components/ShipModel3D").then((m) => m.ShipModel3D), {
   ssr: false,
   loading: () => <div className="w-full h-full bg-graphite-2/40" />,
 });
 
+function ViewportShipModel3D({ slug, rotate = true, scale = 1 }: { slug: string; rotate?: boolean; scale?: number }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(containerRef, { once: false, amount: 0.05 });
+
+  return (
+    <div ref={containerRef} className="w-full h-full">
+      {inView && <ShipModel3D slug={slug} rotate={rotate} scale={scale} />}
+    </div>
+  );
+}
+
 export function FleetSection() {
   return (
-    <SectionShell id="fleet" minH="min-h-screen" className="bg-obsidian pt-32 md:pt-40 pb-48">
+    <SectionShell id="fleet" minH="min-h-screen" className="bg-obsidian pt-20 md:pt-40 pb-24 md:pb-48">
       <SectionGutter index="03" codename="FLEET" />
       <GridShell>
         {/* HEADER */}
-        <div className="grid grid-cols-12 gap-x-8 gap-y-10 pb-24 md:pb-32 items-end">
+        <div className="grid grid-cols-12 gap-x-8 gap-y-10 pb-16 md:pb-32 items-end">
           <div className="col-span-12 md:col-span-3 mono caps text-[10px] text-signal/50 tracking-[0.2em]">
             <div>SECTION · 03</div>
             <div className="mt-1 text-signal/35">FLEET · IN-HOUSE PRODUCTS</div>
           </div>
           <Reveal className="col-span-12 md:col-span-6">
-            <h2 className="caps text-[44px] md:text-[96px] leading-[0.95] tracking-tight font-medium">
+            <h2 className="caps text-[36px] md:text-[96px] leading-[0.95] tracking-tight font-medium">
               <TextReveal text="The Fleet." />
             </h2>
-            <p className="mt-10 max-w-[48ch] text-signal/70 leading-relaxed text-[17px] md:text-[19px]">
+            <p className="mt-8 md:mt-10 max-w-[48ch] text-signal/70 leading-relaxed text-[16px] md:text-[19px]">
               Three vessels committed. One arrived. Each ship is its own product — its own hull,
               its own arrival, its own dossier. Open a hangar to enter.
             </p>
           </Reveal>
           <div className="col-span-12 md:col-span-3 h-[200px] md:h-[240px] relative overflow-hidden md:overflow-visible my-6 md:my-0">
             <div className="absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-0 md:-right-8 top-1/2 -translate-y-1/2 w-[240px] h-[240px] md:w-[400px] md:h-[400px]">
-              <ShipModel3D slug="classified-iii" rotate={false} />
+              <ViewportShipModel3D slug="classified-iii" rotate={false} />
             </div>
           </div>
         </div>
@@ -72,7 +83,7 @@ function ShipDossier({ ship, index }: { ship: FleetShip; index: number }) {
   const live = ship.statusKind === "live";
   return (
     <Link href={ship.href} className="group block border-b border-rule">
-      <div className="grid grid-cols-12 gap-x-8 py-10 md:py-14 items-center transition-colors hover:bg-graphite-2/30 relative">
+      <div className="grid grid-cols-12 gap-x-8 py-8 md:py-14 items-center transition-colors hover:bg-graphite-2/30 relative">
         {/* index col */}
         <div className="col-span-12 md:col-span-2 mono caps text-[10px] tracking-[0.22em]">
           <div className="text-signal/45 text-[12px]">SHIP · {ship.id}</div>
@@ -82,7 +93,7 @@ function ShipDossier({ ship, index }: { ship: FleetShip; index: number }) {
 
         {/* 3D model */}
         <div className="col-span-12 md:col-span-3 h-[160px] md:h-[200px] border border-rule bg-graphite-2/30 my-4 md:my-0">
-          {ship.id === "I" && <ShipModel3D slug={ship.slug} />}
+          {ship.id === "I" && <ViewportShipModel3D slug={ship.slug} />}
         </div>
 
         {/* name + tagline */}

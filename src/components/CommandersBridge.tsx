@@ -18,7 +18,7 @@ export function CommandersBridge() {
     <section ref={ref} className="relative w-full h-screen overflow-hidden bg-obsidian">
       <motion.div style={{ scale, y }} className="absolute inset-0">
         <Image
-          src="/brand/commanders.jpg"
+          src="/images/commanders-bg.png"
           alt="Two Commanders, masked, seated in the bridge of the mothership."
           fill
           priority
@@ -42,7 +42,7 @@ export function CommandersBridge() {
         <h1 className="caps text-[32px] sm:text-5xl md:text-7xl tracking-tight drop-shadow-[0_2px_24px_rgba(0,0,0,0.5)]">
           COMMANDERS&apos; BRIDGE
         </h1>
-        <div className="mono caps text-[10px] text-signal/70 mt-4">LAUKIK · SHRUSTI</div>
+        <div className="mono caps text-[10px] text-signal/70 mt-4">SHRUSTI · LAUKIK</div>
       </motion.div>
     </section>
   );

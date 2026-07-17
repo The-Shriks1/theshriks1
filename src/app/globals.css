@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --obsidian: #070707;
+  --obsidian: #000000;
   --signal: #f2f2f2;
   --graphite: #2b2b2b;
   --graphite-2: #1a1a1a;
@@ -29,7 +29,6 @@
 
 * {
   box-sizing: border-box;
-  cursor: none !important;
 }
 
 html,
@@ -102,5 +101,14 @@ input, textarea, select { background: transparent; border: none; color: inherit;
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
     transition-duration: 0.001ms !important;
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200%);
   }
 }
