@@ -21,11 +21,26 @@ export function Nav() {
     return () => window.removeEventListener("section:active", onActive as EventListener);
   }, []);
 
+  useEffect(() => {
+    if (onHome) {
+      const target = sessionStorage.getItem("scrollTo");
+      if (target) {
+        sessionStorage.removeItem("scrollTo");
+        // small delay to let Next.js render the page before scrolling
+        setTimeout(() => {
+          const el = document.getElementById(target);
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 150);
+      }
+    }
+  }, [onHome]);
+
   function go(href: string) {
     setOpen(false);
     if (href.startsWith("#")) {
       if (!onHome) {
-        router.push("/" + href);
+        sessionStorage.setItem("scrollTo", href.replace(/^#/, ""));
+        router.push("/");
         return;
       }
       const id = href.replace(/^#/, "");
