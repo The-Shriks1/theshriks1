@@ -17,14 +17,28 @@ export function CommandersBridge() {
   return (
     <section ref={ref} className="relative w-full h-screen overflow-hidden bg-obsidian">
       <motion.div style={{ scale, y }} className="absolute inset-0">
-        <Image
-          src="/images/commanders-bg.png"
-          alt="Two Commanders, masked, seated in the bridge of the mothership."
-          fill
-          priority
-          sizes="100vw"
-          style={{ objectFit: "cover", filter: "grayscale(1) contrast(1.06) brightness(0.92)" }}
-        />
+        {/* Desktop Image */}
+        <div className="hidden md:block absolute inset-0">
+          <Image
+            src="/images/commanders-bg.png"
+            alt="Two Commanders, masked, seated in the bridge of the mothership."
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectFit: "cover", filter: "grayscale(1) contrast(1.06) brightness(0.92)" }}
+          />
+        </div>
+        {/* Mobile Image */}
+        <div className="block md:hidden absolute inset-0">
+          <Image
+            src="/images/commanders-bg-mobile.png"
+            alt="Two Commanders, masked, seated in the bridge of the mothership."
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectFit: "cover", filter: "grayscale(1) contrast(1.06) brightness(0.92)" }}
+          />
+        </div>
       </motion.div>
 
       <motion.div
