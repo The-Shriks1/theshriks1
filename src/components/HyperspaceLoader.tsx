@@ -233,8 +233,8 @@ export function HyperspaceLoader({ onComplete }: { onComplete: () => void }) {
                 }}
                 className="absolute inset-0 flex items-center justify-center pointer-events-auto z-[100000] cursor-pointer"
               >
-                <div className="mono text-white text-[12px] tracking-[0.3em] uppercase bg-black/50 px-8 py-4 border border-white/20 animate-pulse pointer-events-none">
-                  Click to Engage Hyperdrive
+                <div className="mono text-white text-[12px] tracking-[0.3em] uppercase bg-black/50 px-8 py-4 border border-white/20 animate-pulse pointer-events-none text-center">
+                  Tap to enter The Shriks Universe via Hyperdrive
                 </div>
               </motion.div>
             )}

@@ -31,7 +31,6 @@ export function Nav() {
       const id = href.replace(/^#/, "");
       const el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-      history.replaceState(null, "", href);
     } else {
       router.push(href);
     }

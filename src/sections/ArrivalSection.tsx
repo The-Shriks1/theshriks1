@@ -24,7 +24,7 @@ export function ArrivalSection() {
       <div ref={ref as unknown as React.RefObject<HTMLDivElement>} className="absolute inset-0">
         <motion.video
           ref={videoRef}
-          src="/videos/timeline-1.mp4"
+          src="/videos/Timeline-1.mp4"
           autoPlay muted loop playsInline preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
           style={{
