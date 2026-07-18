@@ -1,5 +1,5 @@
 "use client";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 
 export function BlueprintText({ 
@@ -28,7 +28,7 @@ export function BlueprintText({
     }
   };
 
-  const wordVariant = {
+  const wordVariant: Variants = {
     hidden: { opacity: 0, y: 15 },
     visible: { 
       opacity: 1, 

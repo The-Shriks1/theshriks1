@@ -28,9 +28,9 @@ export function CommandersSection() {
               </div>
               <div className="mono caps text-[11px] text-signal/55 tracking-[0.22em]">{c.role}</div>
               <p className="text-signal/70 leading-relaxed text-[15px] max-w-[42ch]">{c.body}</p>
-              {c.note && (
+              {(c as any).note && (
                 <div className="mt-auto pt-7 border-t border-rule mono caps text-[10px] text-signal/45 tracking-[0.18em]">
-                  {c.note}
+                  {(c as any).note}
                 </div>
               )}
             </article>
