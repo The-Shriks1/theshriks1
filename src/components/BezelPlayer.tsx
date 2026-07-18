@@ -227,13 +227,13 @@ export function BezelPlayer() {
       {/* 21:9 VIDEO WITH CRT BEZEL */}
       <div className="w-full flex flex-col items-center">
         {/* Outer CRT Bezel */}
-        <div className="relative w-full border border-rule/70 rounded-[32px] p-5 md:p-7 bg-[#0b0b0b] shadow-[0_0_50px_rgba(0,0,0,0.8),inset_0_0_24px_rgba(255,255,255,0.03)] border-b-[6px] border-b-rule-strong/40">
+        <div className="relative w-full border border-rule/70 rounded-[16px] sm:rounded-[32px] p-2 sm:p-5 md:p-7 bg-[#0b0b0b] shadow-[0_0_50px_rgba(0,0,0,0.8),inset_0_0_24px_rgba(255,255,255,0.03)] border-b-[4px] sm:border-b-[6px] border-b-rule-strong/40">
           
           {/* Inner concentric bezel frame */}
-          <div className="relative border border-rule-strong/60 rounded-[20px] p-2 bg-[#060606] shadow-[inset_0_0_12px_rgba(0,0,0,0.9)]">
+          <div className="relative border border-rule-strong/60 rounded-[10px] sm:rounded-[20px] p-1 sm:p-2 bg-[#060606] shadow-[inset_0_0_12px_rgba(0,0,0,0.9)]">
             
             {/* Screen container with aspect-[21/9] */}
-            <div className="relative overflow-hidden rounded-[14px] bg-black aspect-[21/9] scanlines group shadow-[inset_0_0_40px_rgba(0,0,0,1)]">
+            <div className="relative overflow-hidden rounded-[8px] sm:rounded-[14px] bg-black aspect-[21/9] scanlines group shadow-[inset_0_0_40px_rgba(0,0,0,1)]">
               {/* Glass Glare shine */}
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 pointer-events-none z-10 opacity-70" />
               
@@ -263,12 +263,12 @@ export function BezelPlayer() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -5 }}
                     transition={{ duration: 1 }}
-                    className="absolute top-3 left-4 md:top-6 md:left-8 z-30 pointer-events-none"
+                    className="absolute top-2 left-3 sm:top-3 sm:left-4 md:top-6 md:left-8 z-30 pointer-events-none"
                   >
-                    <div className="caps text-signal text-[12px] sm:text-[18px] md:text-[24px] tracking-wide font-medium drop-shadow-md">
+                    <div className="caps text-signal text-[8px] sm:text-[14px] md:text-[24px] tracking-wide font-medium drop-shadow-md">
                       {selectedVideo.name}
                     </div>
-                    <div className="mono text-signal/70 text-[8px] md:text-[10px] tracking-[0.2em] mt-1 drop-shadow-md">
+                    <div className="mono text-signal/70 text-[6px] sm:text-[8px] md:text-[10px] tracking-[0.2em] mt-0.5 sm:mt-1 drop-shadow-md">
                       {selectedVideo.status}
                     </div>
                   </motion.div>
@@ -295,9 +295,9 @@ export function BezelPlayer() {
                     initial={{ opacity: 0, y: 5 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
-                    className="absolute bottom-2 md:bottom-5 inset-x-4 md:inset-x-8 flex justify-center pointer-events-none z-20"
+                    className="absolute bottom-2 md:bottom-5 inset-x-2 sm:inset-x-4 md:inset-x-8 flex justify-center pointer-events-none z-20"
                   >
-                    <span className="mono text-[8px] sm:text-[10px] md:text-[11px] caps tracking-[0.12em] sm:tracking-[0.18em] text-signal bg-obsidian/85 px-2 py-1 md:px-4 md:py-2 border border-rule rounded-sm backdrop-blur-md shadow-lg text-center max-w-[90%] border-l-2 border-l-signal/60">
+                    <span className="mono text-[5px] sm:text-[10px] md:text-[11px] caps tracking-[0.1em] sm:tracking-[0.18em] text-signal bg-obsidian/85 px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-4 md:py-2 border border-rule rounded-sm backdrop-blur-md shadow-lg text-center max-w-[95%] sm:max-w-[90%] border-l-[1px] sm:border-l-2 border-l-signal/60">
                       {currentCaption}
                     </span>
                   </motion.div>
@@ -323,16 +323,16 @@ export function BezelPlayer() {
           </div>
 
           {/* Lower Bezel Panel: LED Indicator, Text Label, Dial Buttons */}
-          <div className="mt-4 flex items-center justify-between px-3">
+          <div className="mt-2 sm:mt-4 flex items-center justify-between px-1 sm:px-3">
             {/* Display Model Name */}
-            <div className="mono caps text-[9px] text-signal/30 tracking-[0.2em]">
-              THE SHRIKS // DISPLAY-V5 // 21:9 WIDE
+            <div className="mono caps text-[6px] sm:text-[9px] text-signal/30 tracking-[0.1em] sm:tracking-[0.2em]">
+              THE SHRIKS // V5 // 21:9
             </div>
 
             {/* LED Status Light */}
-            <div className="flex items-center gap-2">
-              <span className="mono text-[9px] text-signal/25 caps tracking-wider">SIG STAT</span>
-              <span className={`w-2 h-2 rounded-full shadow-[0_0_6px_rgba(42,138,90,0.8)] transition-all duration-300 ${
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="mono text-[6px] sm:text-[9px] text-signal/25 caps tracking-wider">SIG STAT</span>
+              <span className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full shadow-[0_0_6px_rgba(42,138,90,0.8)] transition-all duration-300 ${
                 isPlaying ? "bg-loki-glow animate-pulse" : "bg-signal/30"
               }`} />
             </div>

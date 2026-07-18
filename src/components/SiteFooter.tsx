@@ -26,13 +26,13 @@ export function SiteFooter() {
 
   return (
     <footer 
-      className="relative w-full h-screen min-h-[800px] bg-black overflow-hidden flex flex-col justify-between border-t border-[#1a1a1a]"
+      className="relative w-full h-[85vh] md:h-screen min-h-[550px] md:min-h-[800px] bg-black overflow-hidden flex flex-col justify-between border-t border-[#1a1a1a]"
     >
       {/* 1. Background Void */}
       <div className="absolute inset-0 z-0 bg-black pointer-events-none" />
 
       {/* 2. Structured Top UI */}
-      <div className="relative z-10 w-full px-8 md:px-16 pt-24 md:pt-32 flex flex-col md:flex-row justify-between items-start pointer-events-none">
+      <div className="relative z-10 w-full px-6 sm:px-8 md:px-16 pt-16 md:pt-32 flex flex-col md:flex-row justify-between items-start pointer-events-none">
         
         {/* Left Column: Mission Statement */}
         <div className="max-w-md pointer-events-auto">
