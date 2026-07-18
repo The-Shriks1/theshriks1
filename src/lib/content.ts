@@ -34,7 +34,6 @@ export const SOCIALS = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/the-shriks-041a15417/", platform: "linkedin" },
   { label: "@TheShriks", href: "https://x.com/TheShriks", platform: "x" },
   { label: "@times.theshriks", href: "https://www.instagram.com/times.theshriks/", platform: "instagram" },
-  { label: "@lokiai.theshriks", href: "https://www.instagram.com/lokiai.theshriks/", platform: "instagram" },
   { label: "@the.shriks", href: "https://www.instagram.com/the.shriks/", platform: "instagram" },
   { label: "@thats.enough.loki", href: "https://www.instagram.com/thats.enough.loki/", platform: "instagram" },
   { label: "@The-Shriks", href: "https://github.com/The-Shriks", platform: "github" },
@@ -51,10 +50,10 @@ export const SERVICES = [
 ];
 
 export const CHANNELS = [
-  { k: "01", label: "FOUNDER", platform: "Instagram · Public", body: "The personal channel of the founding Commander. Craft process, editorial work, and unfiltered perspective." },
-  { k: "02", label: "THE SHRIKS", platform: "Instagram · Primary", body: "The official venture account. Brand films, product launches, fleet arrival sequences, and cinematic releases." },
-  { k: "03", label: "LOKIAI", platform: "Instagram · Product", body: "Dedicated signal channel for Ship I. Development progress, live demonstrations, and technical milestones." },
-  { k: "04", label: "TIMES.THESHRIKS", platform: "Content · Editorial", body: "The editorial and UGC arm. Technical breakdowns, build documentation, tool reviews, and creator-format content." },
+  { k: "01", label: "FOUNDER", href: "https://www.instagram.com/thats.enough.loki/", platform: "Instagram · Public", body: "The personal channel of the founding Commander. Craft process, editorial work, and unfiltered perspective." },
+  { k: "02", label: "THE SHRIKS", href: "https://www.instagram.com/the.shriks/", platform: "Instagram · Primary", body: "The official venture account. Brand films, product launches, fleet arrival sequences, and cinematic releases." },
+  { k: "03", label: "LOKIAI", href: "https://lokiai.theshriks.space", platform: "Website · Product", body: "Dedicated signal channel for Ship I. Development progress, live demonstrations, and technical milestones." },
+  { k: "04", label: "TIMES.THESHRIKS", href: "https://www.instagram.com/times.theshriks/", platform: "Content · Editorial", body: "Behind the scenes of our journey, edits, and showcasing our work." },
 ];
 
 export const FAQS = [

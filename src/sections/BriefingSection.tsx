@@ -304,9 +304,12 @@ function ChannelBlock() {
 
       <div className="w-full border-t border-signal/20">
         {CHANNELS.map((c, idx) => (
-          <div
+          <a
             key={c.k}
-            className="group grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 items-start md:items-center px-6 py-12 md:px-12 md:py-16 border-b border-signal/20 hover:bg-signal transition-colors duration-150 cursor-pointer"
+            href={c.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 items-start md:items-center px-6 py-12 md:px-12 md:py-16 border-b border-signal/20 hover:bg-signal transition-colors duration-150 cursor-pointer block w-full"
           >
             <div className="col-span-1 md:col-span-1">
               <span className="mono text-[14px] text-signal/50 tracking-[0.2em] group-hover:text-obsidian/60 transition-colors duration-150">
@@ -337,7 +340,7 @@ function ChannelBlock() {
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>
