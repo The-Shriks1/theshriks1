@@ -7,6 +7,7 @@ import { HUD } from "@/components/HUD";
 import { SoundProvider } from "@/components/Sound";
 import { PageFrame } from "@/components/PageFrame";
 import { AppLayoutWrapper } from "@/components/AppLayoutWrapper";
+import { CinematicRuntimeProvider } from "@/lib/CinematicRuntime";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -61,12 +62,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
         <SoundProvider>
-          <AppLayoutWrapper>
-            <SmoothScroll />
-            <Nav />
-            <HUD />
-            <PageFrame>{children}</PageFrame>
-          </AppLayoutWrapper>
+          <CinematicRuntimeProvider>
+            <AppLayoutWrapper>
+              <SmoothScroll />
+              <Nav />
+              <HUD />
+              <PageFrame>{children}</PageFrame>
+            </AppLayoutWrapper>
+          </CinematicRuntimeProvider>
         </SoundProvider>
       </body>
     </html>

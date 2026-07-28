@@ -6,7 +6,7 @@ export function SectionShell({
   id,
   children,
   className = "",
-  minH = "min-h-screen",
+  minH = "min-h-[100svh]",
 }: {
   id: string;
   children: ReactNode;

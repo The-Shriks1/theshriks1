@@ -8,7 +8,7 @@ import { SectionGutter, GridShell } from "@/components/Blueprint";
 
 export function TransmitSection() {
   return (
-    <SectionShell id="transmit" minH="min-h-screen" className="bg-obsidian pt-32 md:pt-40 pb-48">
+    <SectionShell id="transmit" minH="min-h-[100svh]" className="bg-obsidian pt-32 md:pt-40 pb-48">
       <SectionGutter index="06" codename="TRANSMIT" />
       <GridShell>
         {/* DESIGN: STARK MINIMALIST EDITORIAL */}

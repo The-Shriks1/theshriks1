@@ -18,7 +18,7 @@ export default function BlockchainEngineeringPage() {
           { name: "Blockchain Engineering", item: `${SITE_URL}/services/blockchain-engineering` },
         ]}
       />
-      <main className="bg-obsidian min-h-screen pt-32 md:pt-40 pb-48">
+      <main className="bg-obsidian min-h-[100svh] pt-32 md:pt-40 pb-48">
         <div className="max-w-[1400px] mx-auto px-6 md:px-14">
 
           <nav aria-label="Breadcrumb" className="mb-16 flex items-baseline gap-4 mono caps text-[10px] text-signal/45">

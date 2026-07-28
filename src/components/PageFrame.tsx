@@ -8,7 +8,7 @@ export function PageFrame({
   className?: string;
 }) {
   return (
-    <main className={`relative w-full min-h-screen grain ${className}`}>
+    <main className={`relative w-full min-h-[100svh] grain ${className}`}>
       {/* deep vignette — keeps the obsidian field reading as true black at the edges */}
       <div
         className="pointer-events-none fixed inset-0 z-20"

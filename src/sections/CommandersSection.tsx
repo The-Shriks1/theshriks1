@@ -8,7 +8,7 @@ import { SectionGutter, GridShell } from "@/components/Blueprint";
 
 export function CommandersSection() {
   return (
-    <SectionShell id="commanders" minH="min-h-screen" className="bg-obsidian pb-48">
+    <SectionShell id="commanders" minH="min-h-[100svh]" className="bg-obsidian pb-48">
       <SectionGutter index="04" codename="BRIDGE" />
       <CommandersBridge />
 

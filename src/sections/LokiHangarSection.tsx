@@ -8,7 +8,7 @@ import { SectionShell } from "./SectionShell";
 
 export function LokiHangarSection() {
   return (
-    <SectionShell id="lokiai" minH="min-h-screen" className="bg-obsidian">
+    <SectionShell id="lokiai" minH="min-h-[100svh]" className="bg-obsidian">
       <LokiHero />
 
       <div className="px-6 md:px-14 pt-32 pb-32 max-w-[1400px] mx-auto">

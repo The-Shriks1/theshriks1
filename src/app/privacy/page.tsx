@@ -8,7 +8,7 @@ export default function PrivacyPage() {
   const lastUpdated = "27 July 2026";
 
   return (
-    <main className="bg-obsidian min-h-screen pt-32 md:pt-40 pb-48">
+    <main className="bg-obsidian min-h-[100svh] pt-32 md:pt-40 pb-48">
       <div className="max-w-[900px] mx-auto px-6 md:px-14">
 
         <nav aria-label="Breadcrumb" className="mb-16 flex items-baseline gap-4 mono caps text-[10px] text-signal/45">

@@ -38,7 +38,7 @@ export default async function ShipPage({ params }: { params: Promise<{ slug: str
   return (
     <>
       <SectionMarker id="ship-classified" />
-      <section className="relative bg-obsidian pt-20 md:pt-40 pb-24 md:pb-48 min-h-screen">
+      <section className="relative bg-obsidian pt-20 md:pt-40 pb-24 md:pb-48 min-h-[100svh]">
         <SectionGutter index={`SHIP·${ship.id}`} codename={ship.codename} />
         <GridShell>
           <div className="mb-16 flex items-baseline justify-between mono caps text-[10px] text-signal/45">

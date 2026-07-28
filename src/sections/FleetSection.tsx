@@ -28,7 +28,7 @@ function ViewportShipModel3D({ slug, rotate = true }: { slug: string; rotate?: b
 
 export function FleetSection() {
   return (
-    <SectionShell id="fleet" minH="min-h-screen" className="bg-obsidian pt-20 md:pt-40 pb-24 md:pb-48">
+    <SectionShell id="fleet" minH="min-h-[100svh]" className="bg-obsidian pt-20 md:pt-40 pb-24 md:pb-48">
       <SectionGutter index="03" codename="FLEET" />
       <GridShell>
         {/* HEADER */}

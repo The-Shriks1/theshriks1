@@ -3,14 +3,23 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { LokiWordmark } from "./LokiWordmark";
+import { useCinematicRuntime } from "@/lib/CinematicRuntime";
 
 export function LokiHero() {
   const v = useRef<HTMLVideoElement | null>(null);
+  const { getSectionState } = useCinematicRuntime();
+  const state = getSectionState("lokiai"); // Section ID from LokiHangarSection
+
   useEffect(() => {
-    v.current?.play().catch(() => {});
-  }, []);
+    if (state === "dormant") {
+      v.current?.pause();
+    } else {
+      v.current?.play().catch(() => {});
+    }
+  }, [state]);
+
   return (
-    <section className="relative w-full h-[92vh] overflow-hidden">
+    <section className="relative w-full h-[92svh] overflow-hidden">
       <video
         ref={v}
         src="/videos/lokiai-arrival.mp4"

@@ -8,7 +8,8 @@ import { SectionGutter, GridShell } from "@/components/Blueprint";
 import { VentureDiagram } from "@/components/VentureDiagram";
 import { BlueprintText } from "@/components/BlueprintText";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import { useCinematicRuntime } from "@/lib/CinematicRuntime";
 
 /* ═══ HERO ═══ */
 
@@ -147,6 +148,22 @@ function StatRow() {
 function DisciplineBlock() {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const { getSectionState, documentHidden } = useCinematicRuntime();
+  const sectionState = getSectionState("overview");
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  useEffect(() => {
+    SERVICES.forEach((_, idx) => {
+      const vid = videoRefs.current[idx];
+      if (!vid) return;
+      if (activeIndex === idx && sectionState !== "dormant" && !documentHidden) {
+        vid.play().catch(() => {});
+      } else {
+        vid.pause();
+      }
+    });
+  }, [activeIndex, sectionState, documentHidden]);
+
   const getVideoPath = (idx: number) => {
     switch (idx) {
       case 0: return "/videos/Custom Software engineering.mov";
@@ -178,6 +195,9 @@ function DisciplineBlock() {
       <div className="flex flex-col md:flex-row gap-3 h-[700px] md:h-[500px] relative z-50">
         {SERVICES.map((s, idx) => {
           const isActive = activeIndex === idx;
+          const isAdjacent = Math.abs(activeIndex - idx) === 1;
+          const preload = isActive ? "auto" : isAdjacent ? "metadata" : "none";
+          
           return (
             <div
               key={s.id}
@@ -189,16 +209,15 @@ function DisciplineBlock() {
             >
               {/* Background Video */}
               <div className={`absolute inset-0 transition-opacity duration-700 ${isActive ? "opacity-60" : "opacity-0"}`}>
-                {isActive && (
-                  <video 
-                    src={getVideoPath(idx)}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                  />
-                )}
+                <video 
+                  ref={el => { videoRefs.current[idx] = el; }}
+                  src={getVideoPath(idx)}
+                  loop
+                  muted
+                  playsInline
+                  preload={preload}
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Ambient Glow & Text Gradient Overlay (Top to Bottom for Top-Left Text) */}
@@ -373,7 +392,7 @@ function FaqBlock() {
 
 export function BriefingSection() {
   return (
-    <SectionShell id="overview" minH="min-h-screen" className="bg-obsidian pt-20 md:pt-40 pb-24 md:pb-48">
+    <SectionShell id="overview" minH="min-h-[100svh]" className="bg-obsidian pt-20 md:pt-40 pb-24 md:pb-48">
       <SectionGutter index="02" codename="BRIEFING" />
       <GridShell>
         <HeroBlock />

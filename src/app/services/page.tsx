@@ -49,7 +49,7 @@ export default function ServicesPage() {
           { name: "Services", item: `${SITE_URL}/services` },
         ]}
       />
-      <main className="bg-obsidian min-h-screen pt-32 md:pt-40 pb-48">
+      <main className="bg-obsidian min-h-[100svh] pt-32 md:pt-40 pb-48">
         <div className="max-w-[1400px] mx-auto px-6 md:px-14">
 
           {/* Breadcrumb */}

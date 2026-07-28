@@ -11,7 +11,7 @@ const MaskedDuoModel = dynamic(() => import("@/components/MaskedDuoModel").then(
 
 export function BroadcastSection() {
   return (
-    <SectionShell id="broadcast" minH="min-h-screen" className="bg-obsidian pt-20 md:pt-40 pb-24 md:pb-48">
+    <SectionShell id="broadcast" minH="min-h-[100svh]" className="bg-obsidian pt-20 md:pt-40 pb-24 md:pb-48">
       <SectionGutter index="05" codename="BROADCAST" />
       <GridShell>
         {/* HEADER */}

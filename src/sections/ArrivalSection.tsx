@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { Emblem } from "@/components/Emblem";
+import { useCinematicRuntime } from "@/lib/CinematicRuntime";
 
 import { SectionShell } from "./SectionShell";
 
@@ -11,13 +12,16 @@ export function ArrivalSection() {
   const ref = useRef<HTMLElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
+  const { getSectionState } = useCinematicRuntime();
+  const state = getSectionState("arrival");
+
   useEffect(() => {
-    if (prefersReducedMotion) {
+    if (prefersReducedMotion || state === "dormant") {
       videoRef.current?.pause();
     } else {
       videoRef.current?.play().catch(() => {});
     }
-  }, [prefersReducedMotion]);
+  }, [prefersReducedMotion, state]);
 
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const videoScale = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? [1, 1] : [1, 1.08]);

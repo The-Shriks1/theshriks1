@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export function ContactPageClient() {
   return (
-    <main className="bg-obsidian min-h-screen pt-32 md:pt-40 pb-48">
+    <main className="bg-obsidian min-h-[100svh] pt-32 md:pt-40 pb-48">
       <SectionGutter index="CONTACT" codename="TRANSMIT" />
       <GridShell>
         {/* Breadcrumb */}
