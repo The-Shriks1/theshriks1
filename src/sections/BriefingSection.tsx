@@ -6,9 +6,8 @@ import { SERVICES, CHANNELS } from "@/lib/content";
 import { SectionShell } from "./SectionShell";
 import { SectionGutter, GridShell } from "@/components/Blueprint";
 import { VentureDiagram } from "@/components/VentureDiagram";
-import { TextReveal } from "@/components/TextReveal";
 import { BlueprintText } from "@/components/BlueprintText";
-import { motion, useInView, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 
 /* ═══ HERO ═══ */
@@ -23,6 +22,9 @@ function HeroBlock() {
 
   return (
     <div ref={containerRef} className="pb-16 md:pb-40 relative">
+      {/* Page H1 — required for SEO; styled to fit the cinematic brand */}
+      <h1 className="sr-only">Production-grade system architectures for software and AI.</h1>
+
       <Reveal className="w-full relative z-10">
         <div className="flex flex-col items-start gap-4 md:gap-6 w-full mt-10 relative">
           <div className="flex w-full justify-between items-end border-b border-signal/20 pb-4 mb-4 md:mb-10">
@@ -30,7 +32,7 @@ function HeroBlock() {
             <span className="mono text-[8px] md:text-[10px] text-signal/60 tracking-[0.2em]">VOL. 02</span>
           </div>
           
-          <h2 className="w-full flex flex-col font-medium tracking-tighter uppercase text-[clamp(32px,8vw,140px)] leading-[0.85]">
+          <div aria-hidden="true" className="w-full flex flex-col font-medium tracking-tighter uppercase text-[clamp(32px,8vw,140px)] leading-[0.85]">
             <div className="flex w-full justify-start overflow-hidden py-1">
               <BlueprintText text="WE ARE KNOWN" />
             </div>
@@ -55,7 +57,7 @@ function HeroBlock() {
                 outlineOpacity="0.15"
               />
             </div>
-          </h2>
+          </div>
         </div>
       </Reveal>
 

@@ -8,7 +8,7 @@ import * as THREE from "three";
 const LOKI_MODEL_SRC = "/models/lokiai-ship.glb";
 const WARSHIP_MODEL_SRC = "/models/space-warship.glb";
 
-function HullLoki({ rotate, scale }: { rotate: boolean; scale: number }) {
+function HullLoki({ rotate }: { rotate: boolean }) {
   const g = useRef<THREE.Group>(null);
   const { scene, animations } = useGLTF(LOKI_MODEL_SRC);
   const { actions } = useAnimations(animations, g);
@@ -37,7 +37,7 @@ function HullLoki({ rotate, scale }: { rotate: boolean; scale: number }) {
   );
 }
 
-function HullClassified({ rotate, scale }: { rotate: boolean; scale: number }) {
+function HullClassified({ rotate }: { rotate: boolean }) {
   const g = useRef<THREE.Group>(null);
   const { scene, animations } = useGLTF(WARSHIP_MODEL_SRC);
   const { actions } = useAnimations(animations, g);
@@ -70,7 +70,7 @@ function HullClassified({ rotate, scale }: { rotate: boolean; scale: number }) {
 useGLTF.preload(LOKI_MODEL_SRC);
 useGLTF.preload(WARSHIP_MODEL_SRC);
 
-export function ShipModel3D({ slug, rotate = true, scale = 1 }: { slug: string; rotate?: boolean; scale?: number }) {
+export function ShipModel3D({ slug, rotate = true }: { slug: string; rotate?: boolean }) {
   const isLoki = slug === "lokiai";
   return (
     <View className="w-full h-full">
@@ -79,7 +79,7 @@ export function ShipModel3D({ slug, rotate = true, scale = 1 }: { slug: string; 
       <directionalLight position={[2.5, 3, 4]} intensity={1.2} castShadow shadow-mapSize={[1024, 1024]} />
       <directionalLight position={[-3, -1, 2]} intensity={0.45} color="#9ab" />
       <Suspense fallback={null}>
-        {isLoki ? <HullLoki rotate={rotate} scale={scale} /> : <HullClassified rotate={rotate} scale={scale} />}
+        {isLoki ? <HullLoki rotate={rotate} /> : <HullClassified rotate={rotate} />}
         <ContactShadows position={[0, -1.6, 0]} opacity={0.55} blur={3.2} far={5} resolution={512} color="#000" />
       </Suspense>
     </View>

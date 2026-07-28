@@ -1,22 +1,27 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { Emblem } from "@/components/Emblem";
-import { ScrollCue } from "@/components/ScrollCue";
+
 import { SectionShell } from "./SectionShell";
 
 export function ArrivalSection() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const ref = useRef<HTMLElement>(null);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
-    videoRef.current?.play().catch(() => {});
-  }, []);
+    if (prefersReducedMotion) {
+      videoRef.current?.pause();
+    } else {
+      videoRef.current?.play().catch(() => {});
+    }
+  }, [prefersReducedMotion]);
 
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
-  const emblemY = useTransform(scrollYProgress, [0, 1], [0, -40]);
+  const videoScale = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? [1, 1] : [1, 1.08]);
+  const emblemY = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? [0, 0] : [0, -40]);
   const fade = useTransform(scrollYProgress, [0, 0.6, 1], [1, 0.6, 0]);
 
   return (
@@ -25,7 +30,7 @@ export function ArrivalSection() {
         <motion.video
           ref={videoRef}
           src="/videos/Timeline-1.mp4"
-          autoPlay muted loop playsInline preload="auto"
+          autoPlay muted loop playsInline preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
           style={{
             filter: "grayscale(1) contrast(1.08) brightness(0.72)",
@@ -39,7 +44,7 @@ export function ArrivalSection() {
           style={{ y: emblemY, opacity: fade }}
           className="absolute inset-0 flex flex-col items-center justify-center z-10 px-6 text-center pointer-events-none"
         >
-          <Emblem size={200} variant="full" draw />
+          <Emblem size={200} draw />
         </motion.div>
 
 

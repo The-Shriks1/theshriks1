@@ -12,19 +12,45 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "The Shriks - System Architectures",
+  title: {
+    default: "The Shriks - System Architectures | AI & Software",
+    template: "%s | THE SHRIKS",
+  },
   description:
-    "Two Commanders. One mothership. A fleet of products in arrival. THE SHRIKS — engineering, AI/ML, and cinematic production, based in India.",
+    "THE SHRIKS is an independent systems studio and product venture building production-grade software, AI infrastructure, cloud platforms, blockchain systems, and proprietary products including LokiAI.",
   metadataBase: new URL("https://theshriks.space"),
+  alternates: {
+    canonical: "https://theshriks.space",
+  },
   openGraph: {
-    title: "The Shriks - System Architectures",
-    description: "Independent Deep Technology Venture Studio. Two Commanders. One fleet.",
+    title: "The Shriks - System Architectures | AI & Software",
+    description:
+      "THE SHRIKS is an independent systems studio and product venture building production-grade software, AI infrastructure, cloud platforms, blockchain systems, and proprietary products including LokiAI.",
     url: "https://theshriks.space",
     siteName: "THE SHRIKS",
     type: "website",
+    images: [
+      {
+        url: "/brand/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "THE SHRIKS — System Architectures | AI & Software",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Shriks - System Architectures | AI & Software",
+    description:
+      "THE SHRIKS is an independent systems studio and product venture building production-grade software, AI infrastructure, cloud platforms, blockchain systems, and proprietary products including LokiAI.",
+    images: ["/brand/og-default.png"],
   },
   icons: {
     icon: "/favicon-v3.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

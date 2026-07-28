@@ -1,7 +1,7 @@
 "use client";
 
 import { COMMANDERS } from "@/lib/content";
-import { Reveal } from "@/components/Reveal";
+
 import { CommandersBridge } from "@/components/CommandersBridge";
 import { SectionShell } from "./SectionShell";
 import { SectionGutter, GridShell } from "@/components/Blueprint";
@@ -28,9 +28,9 @@ export function CommandersSection() {
               </div>
               <div className="mono caps text-[11px] text-signal/55 tracking-[0.22em]">{c.role}</div>
               <p className="text-signal/70 leading-relaxed text-[15px] max-w-[42ch]">{c.body}</p>
-              {(c as any).note && (
+              {(c as { note?: string }).note && (
                 <div className="mt-auto pt-7 border-t border-rule mono caps text-[10px] text-signal/45 tracking-[0.18em]">
-                  {(c as any).note}
+                  {(c as { note?: string }).note}
                 </div>
               )}
             </article>

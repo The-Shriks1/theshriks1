@@ -1,8 +1,29 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { FLEET } from "@/lib/content";
 import { SectionMarker } from "@/components/SectionMarker";
 import { SectionGutter, GridShell } from "@/components/Blueprint";
+import { SITE_URL } from "@/lib/metadata";
+
+// Classified fleet pages are kept as part of the cinematic experience
+// but are not indexed until they contain substantial public information.
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const ship = FLEET.find((s) => s.slug === slug);
+  if (!ship) return {};
+  return {
+    title: `${ship.codename} — THE SHRIKS Fleet`,
+    description: "This vessel has not yet arrived. Details are under seal.",
+    robots: { index: false, follow: true },
+    alternates: { canonical: `${SITE_URL}/fleet/${slug}` },
+  };
+}
+
 
 export function generateStaticParams() {
   return FLEET.filter((s) => s.slug !== "lokiai").map((s) => ({ slug: s.slug }));

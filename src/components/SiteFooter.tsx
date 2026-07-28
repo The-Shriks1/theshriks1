@@ -1,10 +1,8 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
 import { SOCIALS, SITE } from "@/lib/content";
 import { FaInstagram, FaXTwitter, FaLinkedinIn, FaDiscord, FaGithub, FaReddit } from "react-icons/fa6";
 import { IconType } from "react-icons";
-import { motion } from "framer-motion";
 
 const ICON_MAP: Record<string, IconType> = {
   linkedin: FaLinkedinIn,
@@ -18,11 +16,6 @@ const ICON_MAP: Record<string, IconType> = {
 
 
 export function SiteFooter() {
-  const [mounted, setMounted] = useState(false);
-  
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   return (
     <footer 
@@ -53,7 +46,8 @@ export function SiteFooter() {
         <div className="mt-16 md:mt-0 pointer-events-auto">
           <ul className="flex flex-col gap-4 text-right">
             {SOCIALS.map((s, i) => {
-              const Icon = (s as any).platform ? ICON_MAP[(s as any).platform] : FaInstagram;
+              const platform = (s as { platform?: string }).platform;
+              const Icon = platform ? ICON_MAP[platform] : FaInstagram;
               return (
                 <li key={s.href + i} className="flex justify-start md:justify-end">
                   <a
@@ -80,20 +74,24 @@ export function SiteFooter() {
       <div className="relative z-10 w-full flex flex-col items-center mt-auto pointer-events-none">
         
         {/* Minimal Meta Line */}
-        <div className="flex justify-between items-center w-full mono text-[9px] md:text-[10px] tracking-[0.2em] text-white/40 px-8 mb-4">
-          <span>© {new Date().getFullYear()} THE SHRIKS</span>
+        <div className="flex flex-wrap justify-between items-center w-full mono text-[9px] md:text-[10px] tracking-[0.2em] text-white/40 px-8 mb-4 gap-2">
+          <span>© 2026 THE SHRIKS</span>
           <span className="hidden md:inline-block">OUT OF HUMAN CAPABILITIES</span>
-          <span>END TRANSMISSION</span>
+          <span className="flex gap-4">
+            <a href="/privacy" className="hover:text-white/70 transition-colors">PRIVACY</a>
+            <a href="/terms" className="hover:text-white/70 transition-colors">TERMS</a>
+          </span>
         </div>
 
-        {/* Massive Solid Text Anchor */}
+        {/* Massive Solid Text Anchor — decorative, not a heading */}
         <div className="w-full flex justify-center overflow-hidden">
-          <h1 
+          <div
+            aria-hidden="true"
             className="font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-white/70 to-black select-none whitespace-nowrap leading-[0.8] drop-shadow-2xl"
             style={{ fontSize: "clamp(80px, 18vw, 400px)" }}
           >
             THE SHRIKS
-          </h1>
+          </div>
         </div>
       </div>
 

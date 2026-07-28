@@ -58,7 +58,7 @@ export const CHANNELS = [
 
 export const FAQS = [
   { q: "What is THE SHRIKS?", a: "An independent deep technology venture operating as two unified divisions: external engineering services for funded ventures and an internally developed product line — both governed by the same production standard." },
-  { q: "Who leads the venture?", a: "Two Commanders at equal rank. Shrusti leads frontend development, AI-driven cinematic production, and creative direction. Laukik leads engineering, systems architecture, and platform delivery. There is no hierarchy between them." },
+  { q: "Who leads the venture?", a: "Laukik is the Founder, leading systems architecture and AI infrastructure. Shrusti is the Product Designer, contributing to product interfaces, UI/UX, illustration, visual systems, and creative direction across THE SHRIKS." },
   { q: "Where is THE SHRIKS based?", a: "India. All engagements are delivered remotely. Geography does not constrain the scope or standard of the work." },
   { q: "What is the fleet?", a: "The venture operates as a mothership. Each product shipped is a distinct vessel within its fleet, arriving with its own launch sequence, its own visual identity, and its own technical architecture. LokiAI is Ship I." },
   { q: "Why monochrome?", a: "Visual restraint enforces consistency across every medium and format. The single green accent is reserved exclusively for LokiAI — it is a product signal, not a brand colour." },
@@ -88,8 +88,8 @@ export const FLEET: FleetShip[] = [
     name: "LokiAI",
     status: "LIVE — TRAILER RELEASED · PLATFORM IN BUILD",
     statusKind: "live",
-    tagline: "Local AI. Any device. No cloud.",
-    summary: "LokiAI deploys AI models directly onto Android devices — no cloud, no latency, no ongoing API costs. Runs locally forever.",
+    tagline: "Deploy compatible AI workloads onto supported hardware.",
+    summary: "LokiAI is an Android-first, hardware-aware deployment layer for local AI. It combines workload requirements with a device profile to identify, package, deploy, and validate a compatible model and runtime path.",
     arrival: "26·06",
     href: "/fleet/lokiai",
   },
@@ -120,7 +120,6 @@ export const FLEET: FleetShip[] = [
 ];
 
 export const LOKIAI = {
-  positioning: "Kubernetes for edge AI",
   description: "A hardware-plus-ML platform that enables local and tiny-model orchestration on edge devices through an agent-based workflow.",
   stack: [
     { k: "Architecture", v: "Next.js 14 · Multi-agent pipeline" },
@@ -150,10 +149,10 @@ export const LOKIAI = {
 
 export const COMMANDERS = [
   {
-    rank: "FOUNDER",
+    rank: "COMMANDER",
     name: "SHRUSTI",
-    role: "Frontend · AI · Creative Direction",
-    body: "Leads frontend development, AI-driven cinematic production, and creative direction across product and brand. Architects the interface layer users interact with, directs AI video production from prompt engineering through post, and governs the visual identity of every asset the venture publishes.",
+    role: "Product Designer · UI/UX · Illustration · Creative Systems",
+    body: "Contributes to product interfaces, UI/UX, illustration, visual systems, and creative direction across THE SHRIKS. Personal details are intentionally kept private.",
   },
   {
     rank: "FOUNDER",

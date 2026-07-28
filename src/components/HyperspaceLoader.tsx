@@ -80,18 +80,21 @@ export function HyperspaceLoader({ onComplete }: { onComplete: () => void }) {
     window.addEventListener("click", handleUserClick);
     
     // Attach the handler to the window object so it can be called directly from the React element
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (window as any).__hyperspaceUserClick = handleUserClick;
 
     return () => {
       window.removeEventListener("pointerdown", handleUserClick);
       window.removeEventListener("click", handleUserClick);
       video.removeEventListener("canplaythrough", startAnimation);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       delete (window as any).__hyperspaceUserClick;
       clearTimeout(stretchTimer);
       clearTimeout(jumpTimer);
       clearTimeout(flashTimer);
       clearTimeout(completeTimer);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -227,7 +230,9 @@ export function HyperspaceLoader({ onComplete }: { onComplete: () => void }) {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => {
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   if ((window as any).__hyperspaceUserClick) {
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     (window as any).__hyperspaceUserClick();
                   }
                 }}

@@ -1,7 +1,6 @@
 "use client";
 
-import { useFrame, useThree } from "@react-three/fiber";
-import { useGLTF, View, PerspectiveCamera, ContactShadows, MeshReflectorMaterial } from "@react-three/drei";
+import { useGLTF, View, PerspectiveCamera, ContactShadows } from "@react-three/drei";
 import { Suspense, useRef } from "react";
 import * as THREE from "three";
 

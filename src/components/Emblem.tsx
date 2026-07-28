@@ -7,8 +7,6 @@ type Props = {
   size?: number;
   draw?: boolean;
   className?: string;
-  showWordmark?: boolean;
-  variant?: "mark-only" | "full";
 };
 
 /**
@@ -20,8 +18,6 @@ export function Emblem({
   size = 56,
   draw = false,
   className = "",
-  showWordmark = false,
-  variant,
 }: Props) {
   const reduce = useReducedMotion();
   const src = "/brand/shriks-logo-transparent.png";

@@ -89,7 +89,7 @@ export function SoundProvider({ children }: { children: React.ReactNode }) {
       if (unlocked || !on) return;
       
       const p1 = a1.play();
-      const p2 = a2.play();
+      a2.play();
 
       if (p1 !== undefined) {
         p1.then(() => {
@@ -99,7 +99,7 @@ export function SoundProvider({ children }: { children: React.ReactNode }) {
           window.removeEventListener("keydown", tryPlay);
           window.removeEventListener("wheel", tryPlay);
           window.removeEventListener("touchstart", tryPlay);
-        }).catch((e) => {
+        }).catch(() => {
           // Browser blocked autoplay, keep listeners active to catch next physical interaction
         });
       }

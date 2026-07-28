@@ -4,9 +4,7 @@ import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { SectionShell } from "./SectionShell";
 import { SectionGutter, GridShell } from "@/components/Blueprint";
-import dynamic from "next/dynamic";
 
-const ConvergenceFlow = dynamic(() => import("@/components/ConvergenceFlow").then((m) => m.ConvergenceFlow), { ssr: false });
 
 export function TransmitSection() {
   return (

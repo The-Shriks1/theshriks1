@@ -51,6 +51,7 @@ export function BlueprintText({
             {/* Outline (Blueprint layer) */}
             <span 
               className="absolute inset-0"
+              aria-hidden="true"
               style={{
                 WebkitTextStroke: `1px rgba(242, 242, 242, ${outlineOpacity})`, // signal color equivalent
                 WebkitTextFillColor: "transparent",

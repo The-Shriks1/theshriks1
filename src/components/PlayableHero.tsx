@@ -37,7 +37,7 @@ export function PlayableHero({
         }
       });
     }
-  }, []);
+  }, [isMuted]);
 
   const { scrollYProgress } = useScroll();
 

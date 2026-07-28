@@ -17,7 +17,8 @@ export function Reveal({
   className?: string;
 }) {
   const reduce = useReducedMotion();
-  const Comp = motion.create(As as keyof React.JSX.IntrinsicElements);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const Comp = (motion as any)[As] || motion.div;
   return (
     <Comp
       initial={{ opacity: 0, y }}

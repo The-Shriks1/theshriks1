@@ -14,8 +14,7 @@ export function LokiWordmark({
   animated?: boolean;
 }) {
   const reduce = useReducedMotion();
-  const ratio = 909 / 405;
-  const h = size / ratio;
+
   return (
     <motion.span
       initial={reduce || !animated ? false : { opacity: 0, y: 8 }}

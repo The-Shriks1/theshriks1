@@ -1,16 +1,12 @@
 "use client";
 
-import { MANIFEST_BODY } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
 import { SectionShell } from "./SectionShell";
 import dynamic from "next/dynamic";
 import { SectionGutter, GridShell } from "@/components/Blueprint";
-import { OrbitDiagram } from "@/components/OrbitDiagram";
-import { OriginSeal } from "@/components/OriginSeal";
 import { BezelPlayer } from "@/components/BezelPlayer";
 import { ManifestTimeline } from "@/components/ManifestTimeline";
 
-const MethodGraph = dynamic(() => import("@/components/MethodGraph").then((m) => m.MethodGraph), { ssr: false });
 const MaskedDuoModel = dynamic(() => import("@/components/MaskedDuoModel").then((m) => m.MaskedDuoModel), { ssr: false });
 
 export function BroadcastSection() {

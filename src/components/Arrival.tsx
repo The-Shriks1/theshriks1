@@ -55,7 +55,7 @@ export function Arrival() {
           transition={{ duration: 1.4, delay: 1.2 }}
           className="flex flex-col items-center gap-3"
         >
-          <h1 className="caps text-5xl md:text-7xl font-medium tracking-tight">THE SHRIKS</h1>
+          <div className="caps text-5xl md:text-7xl font-medium tracking-tight">THE SHRIKS</div>
           <div className="mono caps text-[10px] text-signal/60 max-w-[28ch] text-center leading-relaxed">
             An independent technical studio · Founded 22 February · Two Commanders, one fleet
           </div>

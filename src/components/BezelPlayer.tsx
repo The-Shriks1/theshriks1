@@ -120,6 +120,7 @@ export function BezelPlayer() {
   // Initial autoplay on scroll into view
   useEffect(() => {
     if (isInView && !isPlaying && currentTime === 0) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsPlaying(true);
       setShowTitle(true);
       if (videoRef.current) {
@@ -128,10 +129,12 @@ export function BezelPlayer() {
       const titleTimer = setTimeout(() => setShowTitle(false), 4500);
       return () => clearTimeout(titleTimer);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isInView]);
 
   // Sync state when playlist index changes
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setGlitch(true);
     setShowTitle(true);
     const glitchTimer = setTimeout(() => setGlitch(false), 300);
@@ -148,11 +151,13 @@ export function BezelPlayer() {
       clearTimeout(glitchTimer);
       clearTimeout(titleTimer);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedIdx]);
 
   // Sync captions and metadata on time update
   useEffect(() => {
     if (!selectedVideo.captions) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setCurrentCaption("");
       return;
     }

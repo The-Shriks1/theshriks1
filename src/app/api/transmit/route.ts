@@ -10,6 +10,11 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: "Missing fields" }, { status: 400 });
     }
 
+    if (!process.env.SMTP_PASS) {
+      console.error("[TRANSMIT_ERROR] SMTP_PASS environment variable is missing.");
+      return NextResponse.json({ ok: false, error: "Server configuration error" }, { status: 500 });
+    }
+
     // Configure the SMTP transporter using Gmail (since it's a 16-character App Password)
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
@@ -17,7 +22,7 @@ export async function POST(req: Request) {
       secure: true,
       auth: {
         user: "station@theshriks.space",
-        pass: "yghl onab cotb wkvu", // Using the provided app password
+        pass: process.env.SMTP_PASS,
       },
     });
 

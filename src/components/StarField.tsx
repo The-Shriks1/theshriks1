@@ -3,13 +3,15 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { Stars, Sparkles, View, PerspectiveCamera } from "@react-three/drei";
 import { Suspense, useMemo, useRef } from "react";
+import { useReducedMotion } from "framer-motion";
 import * as THREE from "three";
 
 function ParallaxRig({ children }: { children: React.ReactNode }) {
   const ref = useRef<THREE.Group>(null);
   const { mouse } = useThree();
+  const prefersReducedMotion = useReducedMotion();
   useFrame(() => {
-    if (!ref.current) return;
+    if (!ref.current || prefersReducedMotion) return;
     ref.current.rotation.x += (mouse.y * 0.18 - ref.current.rotation.x) * 0.04;
     ref.current.rotation.y += (mouse.x * 0.28 - ref.current.rotation.y) * 0.04;
   });
@@ -18,8 +20,9 @@ function ParallaxRig({ children }: { children: React.ReactNode }) {
 
 function Dust() {
   const ref = useRef<THREE.Points>(null);
+  const prefersReducedMotion = useReducedMotion();
   useFrame((s, dt) => {
-    if (ref.current) ref.current.rotation.z += dt * 0.02;
+    if (ref.current && !prefersReducedMotion) ref.current.rotation.z += dt * 0.02;
   });
   
   const geom = useMemo(() => {
@@ -27,8 +30,11 @@ function Dust() {
     const count = 700;
     const positions = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
+      // eslint-disable-next-line react-hooks/purity -- Intended one-time random initialization
       const r = 8 + Math.random() * 14;
+      // eslint-disable-next-line react-hooks/purity -- Intended one-time random initialization
       const a = Math.random() * Math.PI * 2;
+      // eslint-disable-next-line react-hooks/purity -- Intended one-time random initialization
       const b = (Math.random() - 0.5) * 0.7;
       positions[i * 3] = Math.cos(a) * r;
       positions[i * 3 + 1] = b * r;
@@ -46,15 +52,16 @@ function Dust() {
 }
 
 export function StarField({ density = 1 }: { density?: number }) {
+  const prefersReducedMotion = useReducedMotion();
   return (
     <div className="absolute inset-0 pointer-events-none">
       <View className="w-full h-full">
         <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={55} />
         <Suspense fallback={null}>
           <ParallaxRig>
-            <Stars radius={120} depth={70} count={Math.round(2400 * density)} factor={3.2} saturation={0} fade speed={0.4} />
+            <Stars radius={120} depth={70} count={Math.round(2400 * density)} factor={prefersReducedMotion ? 1.5 : 3.2} saturation={0} fade speed={prefersReducedMotion ? 0 : 0.4} />
             <Dust />
-            <Sparkles count={60} scale={[16, 8, 6]} size={1.6} speed={0.4} opacity={0.55} color="#ffffff" />
+            <Sparkles count={60} scale={[16, 8, 6]} size={1.6} speed={prefersReducedMotion ? 0 : 0.4} opacity={0.55} color="#ffffff" />
           </ParallaxRig>
         </Suspense>
       </View>

@@ -1,40 +1,47 @@
 "use client";
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+
 
 export function GodModeText({ text, className = "" }: { text: string; className?: string }) {
   const chars = text.split("");
 
   return (
-    <div 
-      className={`flex flex-wrap ${className}`} 
-      style={{ 
-        perspective: "1200px",
-        transformStyle: "preserve-3d" 
-      }}
-    >
-      {chars.map((char, i) => {
+    <>
+      <span className="sr-only">{text}</span>
+      <div 
+        aria-hidden="true"
+        className={`flex flex-wrap ${className}`} 
+        style={{ 
+          perspective: "1200px",
+          transformStyle: "preserve-3d" 
+        }}
+      >
+        {chars.map((char, i) => {
         if (char === " ") return <span key={i} className="w-[0.3em] inline-block" />;
-        return <GodChar key={i} char={char} index={i} total={chars.length} />;
+        return <GodChar key={i} char={char} index={i} />;
       })}
-    </div>
+      </div>
+    </>
   );
 }
 
-function GodChar({ char, index, total }: { char: string; index: number; total: number }) {
+function GodChar({ char, index }: { char: string; index: number; }) {
   // Ultra-aggressive startup animation:
   // Characters start infinitely stretched and shattered in 3D space,
   // then violently snap into reality.
   
   // Create unique, non-repeating chaos for each letter
-  const randomDelay = Math.random() * 0.5;
+  // eslint-disable-next-line react-hooks/purity -- Glitch offset is intended to be random per render
   const randomDuration = 0.1 + Math.random() * 0.3;
+  // eslint-disable-next-line react-hooks/purity -- Glitch offset is intended to be random per render
   const glitchOffset = Math.random() * 100;
   
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <motion.div
       className="relative inline-block cursor-crosshair group"
-      initial={{ 
+      initial={prefersReducedMotion ? { opacity: 0, z: 0, filter: "blur(0px)" } : { 
         opacity: 0, 
         scaleY: 100, 
         scaleX: 0.01, 
@@ -43,7 +50,12 @@ function GodChar({ char, index, total }: { char: string; index: number; total: n
         rotateY: 90,
         filter: "blur(20px) hue-rotate(180deg)",
       }}
-      whileInView={{
+      whileInView={prefersReducedMotion ? {
+        opacity: 1,
+        z: 0,
+        filter: "blur(0px)",
+        transition: { duration: 0.5, delay: index * 0.03 }
+      } : {
         opacity: 1,
         scaleY: 1,
         scaleX: 1,
@@ -53,14 +65,18 @@ function GodChar({ char, index, total }: { char: string; index: number; total: n
         filter: "blur(0px) hue-rotate(0deg)",
         transition: {
           type: "spring",
+          // eslint-disable-next-line react-hooks/purity -- Intended one-time random initialization
           damping: 3 + Math.random() * 5, // extremely bouncy
+          // eslint-disable-next-line react-hooks/purity -- Intended one-time random initialization
           stiffness: 100 + Math.random() * 300, // extremely violent
+          // eslint-disable-next-line react-hooks/purity -- Intended one-time random initialization
           delay: (index * 0.03) + Math.random() * 0.1,
+          // eslint-disable-next-line react-hooks/purity -- Intended one-time random initialization
           mass: 0.5 + Math.random() * 2
         }
       }}
       viewport={{ once: true, margin: "-10%" }}
-      whileHover={{
+      whileHover={prefersReducedMotion ? { color: "#ff0055" } : {
         scaleY: [1, 3, -2, 4, 1],
         scaleX: [1, 0.2, 3, 0.5, 1],
         rotateZ: [0, 15, -25, 45, 0],
@@ -71,9 +87,11 @@ function GodChar({ char, index, total }: { char: string; index: number; total: n
       }}
       style={{ transformStyle: "preserve-3d" }}
     >
-      {/* Cyan Ghost - Erratic Orbital Phase */}
-      <motion.span
-        className="absolute inset-0 text-[#00ffcc] mix-blend-screen pointer-events-none z-10"
+      {!prefersReducedMotion && (
+        <>
+          {/* Cyan Ghost - Erratic Orbital Phase */}
+          <motion.span
+            className="absolute inset-0 text-[#00ffcc] mix-blend-screen pointer-events-none z-10"
         animate={{
           x: [0, -3, 5, -6, 0, 4, -2, 0],
           y: [0, 4, -3, 5, -2, -4, 3, 0],
@@ -112,16 +130,19 @@ function GodChar({ char, index, total }: { char: string; index: number; total: n
       >
         {char}
       </motion.span>
+        </>
+      )}
 
       {/* Core Letter */}
       <motion.span 
         className="relative z-20 text-white mix-blend-difference inline-block"
-        animate={{
+        animate={prefersReducedMotion ? {} : {
           y: [0, -2, 1, -1, 0],
           x: [0, 1, -1, 2, 0]
         }}
         transition={{
           repeat: Infinity,
+          // eslint-disable-next-line react-hooks/purity -- Intended continuous randomness
           duration: 3 + Math.random() * 2,
           ease: "easeInOut"
         }}

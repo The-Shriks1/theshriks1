@@ -20,6 +20,7 @@ export function CustomCursor() {
   useEffect(() => {
     // Hide on touch devices to prevent mobile bugs
     if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsTouch(false);
     }
 

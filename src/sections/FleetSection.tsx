@@ -15,13 +15,13 @@ const ShipModel3D = dynamic(() => import("@/components/ShipModel3D").then((m) =>
   loading: () => <div className="w-full h-full bg-graphite-2/40" />,
 });
 
-function ViewportShipModel3D({ slug, rotate = true, scale = 1 }: { slug: string; rotate?: boolean; scale?: number }) {
+function ViewportShipModel3D({ slug, rotate = true }: { slug: string; rotate?: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const inView = useInView(containerRef, { once: false, amount: 0.05 });
 
   return (
     <div ref={containerRef} className="w-full h-full">
-      {inView && <ShipModel3D slug={slug} rotate={rotate} scale={scale} />}
+      {inView && <ShipModel3D slug={slug} rotate={rotate} />}
     </div>
   );
 }
