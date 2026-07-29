@@ -73,7 +73,13 @@
 - Google Search Console and Bing Webmaster Tools property credentials must be retrieved by the repository owner to submit indexing requests.
 
 ## 20. Claims that remain unverified
-- None. All public claims align with the canonical business record. 
+- Production deployment status
+- Production sitemap and robots output after deployment
+- Google Search Console sitemap acceptance and indexing
+- Bing Webmaster Tools sitemap acceptance
+- AI answer-engine discovery or citation
+- Rich Results Test and Schema.org validation results
+- Production status codes for every sitemap URL
 
 ## 21. Next 30-, 60-, and 90-Day Evidence Plan
 - **30 Days**: Monitor Google Search Console for "Discovered - currently not indexed" vs "Crawled - currently not indexed" metrics. Confirm AI search engines like Perplexity are referencing the `/facts` and `llms.txt` properly.

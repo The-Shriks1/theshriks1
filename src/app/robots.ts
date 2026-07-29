@@ -19,12 +19,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "Googlebot",
         allow: "/",
-        disallow: ["/api/", "/admin/", "/internal/", "/preview/", "/_next/"],
+        disallow: ["/api/", "/admin/", "/internal/", "/preview/"],
       },
       {
         userAgent: "Bingbot",
         allow: "/",
-        disallow: ["/api/", "/admin/", "/internal/", "/preview/", "/_next/"],
+        disallow: ["/api/", "/admin/", "/internal/", "/preview/"],
       },
       // Legitimate AI-retrieval crawlers — allowed to index public content
       {
