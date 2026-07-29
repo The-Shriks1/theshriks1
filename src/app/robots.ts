@@ -12,7 +12,6 @@ export default function robots(): MetadataRoute.Robots {
           "/admin/",
           "/internal/",
           "/preview/",
-          "/_next/",
         ],
       },
       // Standard search engine bots explicitly verified
