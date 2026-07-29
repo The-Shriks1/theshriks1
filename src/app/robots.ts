@@ -15,9 +15,25 @@ export default function robots(): MetadataRoute.Robots {
           "/_next/",
         ],
       },
+      // Standard search engine bots explicitly verified
+      {
+        userAgent: "Googlebot",
+        allow: "/",
+        disallow: ["/api/", "/admin/", "/internal/", "/preview/", "/_next/"],
+      },
+      {
+        userAgent: "Bingbot",
+        allow: "/",
+        disallow: ["/api/", "/admin/", "/internal/", "/preview/", "/_next/"],
+      },
       // Legitimate AI-retrieval crawlers — allowed to index public content
       {
-        userAgent: "GPTBot",
+        userAgent: "OAI-SearchBot",
+        allow: "/",
+        disallow: ["/api/", "/admin/", "/internal/", "/preview/"],
+      },
+      {
+        userAgent: "ChatGPT-User",
         allow: "/",
         disallow: ["/api/", "/admin/", "/internal/", "/preview/"],
       },
@@ -27,19 +43,27 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/admin/", "/internal/", "/preview/"],
       },
       {
+        userAgent: "ClaudeBot",
+        allow: "/",
+        disallow: ["/api/", "/admin/", "/internal/", "/preview/"],
+      },
+      {
         userAgent: "PerplexityBot",
         allow: "/",
         disallow: ["/api/", "/admin/", "/internal/", "/preview/"],
       },
+      // Model training policies
       {
-        userAgent: "anthropic-ai",
-        allow: "/",
-        disallow: ["/api/", "/admin/", "/internal/", "/preview/"],
+        userAgent: "GPTBot",
+        disallow: "/",
       },
       {
         userAgent: "CCBot",
-        allow: "/",
-        disallow: ["/api/", "/admin/", "/internal/", "/preview/"],
+        disallow: "/",
+      },
+      {
+        userAgent: "anthropic-ai",
+        disallow: "/",
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,

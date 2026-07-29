@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const SITE_URL = "https://theshriks.space";
+export const SITE_URL = "https://www.theshriks.space";
 export const SITE_NAME = "THE SHRIKS";
 export const ORG_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
