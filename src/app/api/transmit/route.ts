@@ -10,25 +10,25 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: "Missing fields" }, { status: 400 });
     }
 
-    if (!process.env.SMTP_PASS) {
-      console.error("[TRANSMIT_ERROR] SMTP_PASS environment variable is missing.");
+    if (!process.env.SMTP_PASSWORD) {
+      console.error("[TRANSMIT_ERROR] SMTP_PASSWORD environment variable is missing.");
       return NextResponse.json({ ok: false, error: "Server configuration error" }, { status: 500 });
     }
 
-    // Configure the SMTP transporter using Gmail (since it's a 16-character App Password)
+    // Configure the SMTP transporter using environment variables
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true,
+      host: process.env.SMTP_HOST || "smtp.gmail.com",
+      port: Number(process.env.SMTP_PORT) || 587,
+      secure: Number(process.env.SMTP_PORT) === 465,
       auth: {
-        user: "station@theshriks.space",
-        pass: process.env.SMTP_PASS,
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASSWORD,
       },
     });
 
     const mailOptions = {
-      from: `"The Shriks Transmit" <station@theshriks.space>`,
-      to: "station@theshriks.space", // Send the form submission to yourselves
+      from: `"The Shriks Transmit" <${process.env.SMTP_FROM_EMAIL}>`,
+      to: process.env.SMTP_USER, // Send the form submission to yourselves
       replyTo: email, // So you can hit reply and it goes to the submitter
       subject: `[TRANSMISSION] ${intent} - from ${name}`,
       text: `

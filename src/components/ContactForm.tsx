@@ -26,8 +26,8 @@ function ParticleSwarm({ isTyping, isSending }: { isTyping: boolean, isSending: 
       pointsRef.current.rotation.y -= delta / 15;
 
       if (isSending) {
-        pointsRef.current.rotation.y -= delta * 5;
-        pointsRef.current.rotation.z += delta * 2;
+        pointsRef.current.rotation.y -= delta * 1.5;
+        pointsRef.current.rotation.z += delta * 0.5;
       }
     }
 
@@ -42,7 +42,7 @@ function ParticleSwarm({ isTyping, isSending }: { isTyping: boolean, isSending: 
       <Points ref={pointsRef} positions={sphere} stride={3} frustumCulled={false}>
         <PointMaterial 
           transparent 
-          color={isSending ? "#00f0ff" : "#00ffaa"} 
+          color={isSending ? "#ffffff" : "#888888"} 
           size={0.015} 
           sizeAttenuation={true} 
           depthWrite={false} 
@@ -53,9 +53,9 @@ function ParticleSwarm({ isTyping, isSending }: { isTyping: boolean, isSending: 
       <mesh ref={coreRef}>
         <sphereGeometry args={[0.5, 32, 32]} />
         <meshBasicMaterial 
-          color={isSending ? "#00f0ff" : "#00ffaa"} 
+          color={isSending ? "#ffffff" : "#555555"} 
           transparent 
-          opacity={isTyping ? 0.4 : (isSending ? 0.7 : 0.1)} 
+          opacity={isTyping ? 0.2 : (isSending ? 0.4 : 0.05)} 
           blending={THREE.AdditiveBlending} 
         />
       </mesh>
@@ -148,7 +148,7 @@ export function ContactForm() {
            <div className="flex justify-between items-end">
               <div className="flex flex-col gap-1">
                  <span className="mono text-[10px] tracking-widest text-neutral-500">STATUS</span>
-                 <span className={`mono text-[11px] tracking-widest font-bold ${status === 'sending' ? 'text-cyan-400 animate-pulse' : (status === 'sent' ? 'text-emerald-400' : 'text-neutral-300')}`}>
+                 <span className={`mono text-[11px] tracking-widest font-bold ${status === 'sending' ? 'text-white animate-pulse' : (status === 'sent' ? 'text-white' : 'text-neutral-300')}`}>
                     {status === 'sending' ? 'TRANSMITTING' : (status === 'sent' ? 'DELIVERED' : 'READY')}
                  </span>
               </div>
@@ -329,7 +329,7 @@ export function ContactForm() {
             <div className="text-[13px] font-medium mb-4 sm:mb-0 h-6 flex items-center">
                <AnimatePresence mode="wait">
                   {status === "sending" && (
-                    <motion.div key="sending" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} className="flex items-center gap-2 text-cyan-400">
+                    <motion.div key="sending" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} className="flex items-center gap-2 text-white">
                       <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
@@ -338,8 +338,8 @@ export function ContactForm() {
                     </motion.div>
                   )}
                   {status === "sent" && (
-                    <motion.div key="sent" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} className="text-emerald-400 flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                    <motion.div key="sent" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} className="text-white flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-white" />
                       Transmission Secured!
                     </motion.div>
                   )}
