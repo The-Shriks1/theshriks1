@@ -47,8 +47,8 @@ ${message}
     await transporter.sendMail(mailOptions);
 
     return NextResponse.json({ ok: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error("[TRANSMIT_ERROR]", error);
-    return NextResponse.json({ ok: false, error: "Failed to send transmission" }, { status: 500 });
+    return NextResponse.json({ ok: false, error: error?.message || "Failed to send transmission" }, { status: 500 });
   }
 }

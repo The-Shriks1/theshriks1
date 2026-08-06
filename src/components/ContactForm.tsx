@@ -42,7 +42,7 @@ function ParticleSwarm({ isTyping, isSending }: { isTyping: boolean, isSending: 
       <Points ref={pointsRef} positions={sphere} stride={3} frustumCulled={false}>
         <PointMaterial 
           transparent 
-          color={isSending ? "#ffffff" : "#888888"} 
+          color={isSending ? "#ffffff" : "#00ffaa"} 
           size={0.015} 
           sizeAttenuation={true} 
           depthWrite={false} 
@@ -53,9 +53,9 @@ function ParticleSwarm({ isTyping, isSending }: { isTyping: boolean, isSending: 
       <mesh ref={coreRef}>
         <sphereGeometry args={[0.5, 32, 32]} />
         <meshBasicMaterial 
-          color={isSending ? "#ffffff" : "#555555"} 
+          color={isSending ? "#ffffff" : "#00ffaa"} 
           transparent 
-          opacity={isTyping ? 0.2 : (isSending ? 0.4 : 0.05)} 
+          opacity={isTyping ? 0.4 : (isSending ? 0.7 : 0.1)} 
           blending={THREE.AdditiveBlending} 
         />
       </mesh>
