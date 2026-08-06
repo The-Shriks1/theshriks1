@@ -10,25 +10,30 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: "Missing fields" }, { status: 400 });
     }
 
-    if (!process.env.SMTP_PASSWORD) {
-      console.error("[TRANSMIT_ERROR] SMTP_PASSWORD environment variable is missing.");
+    const pass = process.env.SMTP_PASSWORD || process.env.SMTP_PASS;
+    if (!pass) {
+      console.error("[TRANSMIT_ERROR] SMTP password environment variable is missing.");
       return NextResponse.json({ ok: false, error: "Server configuration error" }, { status: 500 });
     }
 
-    // Configure the SMTP transporter using environment variables
+    const host = process.env.SMTP_HOST || "smtp.gmail.com";
+    const port = Number(process.env.SMTP_PORT) || 465;
+    const user = process.env.SMTP_USER || "station@theshriks.space";
+    
+    // Configure the SMTP transporter using environment variables or fallback to old service
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || "smtp.gmail.com",
-      port: Number(process.env.SMTP_PORT) || 587,
-      secure: Number(process.env.SMTP_PORT) === 465,
+      host,
+      port,
+      secure: port === 465,
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASSWORD,
+        user,
+        pass,
       },
     });
 
     const mailOptions = {
-      from: `"The Shriks Transmit" <${process.env.SMTP_FROM_EMAIL}>`,
-      to: process.env.SMTP_USER, // Send the form submission to yourselves
+      from: `"The Shriks Transmit" <${process.env.SMTP_FROM_EMAIL || "station@theshriks.space"}>`,
+      to: user, // Send the form submission to yourselves
       replyTo: email, // So you can hit reply and it goes to the submitter
       subject: `[TRANSMISSION] ${intent} - from ${name}`,
       text: `

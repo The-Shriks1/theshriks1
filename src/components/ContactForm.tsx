@@ -112,7 +112,16 @@ export function ContactForm() {
       // Artificial delay for the realistic animation effect
       await new Promise(r => setTimeout(r, 2000));
       
-      if (!res.ok) throw new Error("Failed to send message. Please try again.");
+      if (!res.ok) {
+        let errorMessage = "Failed to send message. Please try again.";
+        try {
+          const data = await res.json();
+          if (data && data.error) errorMessage = data.error;
+        } catch (e) {
+          // fallback
+        }
+        throw new Error(errorMessage);
+      }
       
       setStatus("sent");
       setValues({ name: "", email: "", intent: "", message: "" });
