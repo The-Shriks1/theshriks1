@@ -71,26 +71,23 @@ ${message}
       to: email, // Send back to the person who filled out the form
       subject: `Transmission Received: ${intent}`,
       html: `
-        <div style="background-color: #000000; color: #e5e5e5; font-family: 'Courier New', Courier, monospace; padding: 40px 20px; width: 100%; box-sizing: border-box;">
-          <div style="max-width: 600px; margin: 0 auto; border: 1px solid #1a2a2a; border-top: 4px solid #00ffaa; border-radius: 12px; background-color: #050a0a; padding: 40px; text-align: left; box-shadow: 0 10px 30px rgba(0, 255, 170, 0.05);">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid #112222; padding-bottom: 20px; margin-bottom: 30px;">
-              <div>
-                <span style="font-size: 10px; color: #00ffaa; letter-spacing: 3px; text-transform: uppercase;">STATUS: SECURE</span>
-                <h2 style="color: #ffffff; letter-spacing: 2px; text-transform: uppercase; font-size: 20px; margin: 10px 0 0 0;">Transmission Received</h2>
-              </div>
+        <div style="background-color: #030708; color: #a0b3b8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; padding: 60px 20px; width: 100%; box-sizing: border-box;">
+          <div style="max-width: 500px; margin: 0 auto; background-color: #060b0d; border: 1px solid #0d1a1c; padding: 40px; text-align: left;">
+            <h2 style="color: #ffffff; font-size: 15px; font-weight: 400; letter-spacing: 0.1em; margin: 0 0 30px 0; border-bottom: 1px solid #0d1a1c; padding-bottom: 20px; text-transform: uppercase;">
+              Transmission Received
+            </h2>
+            
+            <p style="font-size: 14px; line-height: 1.7; color: #e5e5e5; margin-bottom: 20px;">Dear ${name},</p>
+            <p style="font-size: 14px; line-height: 1.7; color: #8a9c9f; margin-bottom: 40px;">${autoReplyMessage}</p>
+            
+            <div style="background-color: #030506; border: 1px solid #081113; padding: 25px; margin-bottom: 40px;">
+              <p style="font-size: 10px; color: #465c60; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 15px 0;">Copy of Message</p>
+              <p style="font-size: 13px; color: #6d8487; white-space: pre-wrap; margin: 0; line-height: 1.6; font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;">${message}</p>
             </div>
             
-            <p style="font-size: 14px; line-height: 1.6; color: #cccccc;">Dear ${name},</p>
-            <p style="font-size: 14px; line-height: 1.8; color: #aaaaaa;">${autoReplyMessage}</p>
-            
-            <div style="margin-top: 40px; padding: 25px; background-color: #020505; border-left: 2px solid #00ffaa; border-radius: 0 8px 8px 0;">
-              <p style="font-size: 10px; color: #557777; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; margin-bottom: 10px;">[ ENCRYPTED LOG COPY ]</p>
-              <p style="font-size: 14px; color: #88aaaa; white-space: pre-wrap; margin-bottom: 0; line-height: 1.5;">${message}</p>
-            </div>
-            
-            <div style="margin-top: 50px; border-top: 1px solid #112222; padding-top: 20px; text-align: center;">
-              <p style="font-size: 10px; color: #446666; text-transform: uppercase; letter-spacing: 3px; margin: 0;">End of Transmission.</p>
-              <p style="font-size: 14px; color: #00ffaa; letter-spacing: 2px; margin-top: 10px; text-transform: uppercase;">The Shriks</p>
+            <div style="border-top: 1px solid #0d1a1c; padding-top: 30px;">
+              <p style="font-size: 12px; color: #00ffaa; margin: 0; letter-spacing: 0.1em; font-weight: 500;">THE SHRIKS</p>
+              <p style="font-size: 11px; color: #3b5054; margin: 8px 0 0 0; letter-spacing: 0.05em;">theshriks.space</p>
             </div>
           </div>
         </div>
