@@ -62,7 +62,7 @@ export function LokiAIPageClient() {
         <GridShell>
           {/* breadcrumb */}
           <nav aria-label="Breadcrumb" className="mb-16 flex items-baseline justify-between mono caps text-[10px] text-signal/45">
-            <Link href="/fleet" className="hover:text-signal transition-colors">← BACK · THE FLEET</Link>
+            <Link href="/" className="hover:text-signal transition-colors">← BACK · HOME</Link>
             <span>SHIP I OF III</span>
           </nav>
 
@@ -196,7 +196,7 @@ export function LokiAIPageClient() {
 
           {/* EARLY ACCESS */}
           <div className="mt-20 md:mt-32 flex flex-col md:flex-row gap-4 items-center md:items-baseline justify-between mono caps text-[10px] text-signal/45 border-t border-rule pt-8 text-center md:text-left">
-            <Link href="/fleet" className="hover:text-signal transition-colors">← RETURN TO FLEET</Link>
+            <Link href="/" className="hover:text-signal transition-colors">← RETURN HOME</Link>
             <Link href="https://universe.theshriks.space/" target="_blank" rel="noopener noreferrer" className="hover:text-loki-glow text-signal transition-colors text-[12px]">REQUEST EARLY ACCESS →</Link>
           </div>
         </GridShell>

@@ -1,7 +1,7 @@
 export const SITE = {
   name: "THE SHRIKS",
   domain: "theshriks.space",
-  founded: "22 FEBRUARY",
+  founded: "22 FEBRUARY 2026",
   version: "v1.0",
   email: "transmission@theshriks.space",
 };

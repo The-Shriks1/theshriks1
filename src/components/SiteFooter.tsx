@@ -1,6 +1,7 @@
 "use client";
 
 import { SOCIALS, SITE } from "@/lib/content";
+import Link from "next/link";
 import { FaInstagram, FaXTwitter, FaLinkedinIn, FaDiscord, FaGithub, FaReddit } from "react-icons/fa6";
 import { IconType } from "react-icons";
 
@@ -78,10 +79,19 @@ export function SiteFooter() {
           <span>© 2026 THE SHRIKS</span>
           <span className="hidden md:inline-block">OUT OF HUMAN CAPABILITIES</span>
           <span className="flex gap-4">
-            <a href="/privacy" className="hover:text-white/70 transition-colors">PRIVACY</a>
-            <a href="/terms" className="hover:text-white/70 transition-colors">TERMS</a>
+            <Link href="/privacy" className="hover:text-white/70 transition-colors">PRIVACY</Link>
+            <Link href="/terms" className="hover:text-white/70 transition-colors">TERMS</Link>
           </span>
         </div>
+
+        {/* Site Navigation — crawlable links for all important pages */}
+        <nav aria-label="Site navigation" className="flex flex-wrap justify-center gap-x-8 gap-y-2 w-full px-8 mb-6 mono text-[9px] md:text-[10px] tracking-[0.2em] text-white/30">
+          <Link href="/services" className="hover:text-white/60 transition-colors">SERVICES</Link>
+          <Link href="/fleet/lokiai" className="hover:text-white/60 transition-colors">LOKIAI</Link>
+          <Link href="/commanders" className="hover:text-white/60 transition-colors">COMMANDERS</Link>
+          <Link href="/facts" className="hover:text-white/60 transition-colors">FACTS</Link>
+          <Link href="/contact" className="hover:text-white/60 transition-colors">CONTACT</Link>
+        </nav>
 
         {/* Massive Solid Text Anchor — decorative, not a heading */}
         <div className="w-full flex justify-center overflow-hidden">

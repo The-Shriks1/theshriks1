@@ -18,21 +18,17 @@ export function AppLayoutWrapper({ children }: { children: React.ReactNode }) {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return <div className="fixed inset-0 bg-[#0a0a0a] z-[99999]" />;
-  }
-
   return (
     <>
       {loading && (
-        <HyperspaceLoader 
+        <HyperspaceLoader
           onComplete={() => {
             setLoading(false);
             window.dispatchEvent(new Event("appLoaded"));
-          }} 
+          }}
         />
       )}
-      {/* The Global WebGL Engine */}
+      {/* The Global WebGL Engine — client-only, requires browser APIs */}
       {mounted && (
         <Canvas
           eventSource={containerRef as React.RefObject<HTMLElement>}
@@ -46,9 +42,14 @@ export function AppLayoutWrapper({ children }: { children: React.ReactNode }) {
           <View.Port />
         </Canvas>
       )}
-      <div 
+      {/*
+        Children are always rendered (including during SSR) so Googlebot can index page content.
+        The opacity:0 / height:100svh style during loading keeps them visually hidden
+        behind the HyperspaceLoader — the user experience is identical.
+      */}
+      <div
         ref={containerRef}
-        style={{ 
+        style={{
           opacity: loading ? 0 : 1,
           transition: "opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1)",
           pointerEvents: loading ? "none" : "auto",

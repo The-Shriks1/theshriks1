@@ -99,8 +99,9 @@ ${message}
     await transporter.sendMail(autoReplyOptions);
 
     return NextResponse.json({ ok: true });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("[TRANSMIT_ERROR]", error);
-    return NextResponse.json({ ok: false, error: error?.message || "Failed to send transmission" }, { status: 500 });
+    const message = error instanceof Error ? error.message : "Failed to send transmission";
+    return NextResponse.json({ ok: false, error: message }, { status: 500 });
   }
 }

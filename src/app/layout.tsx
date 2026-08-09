@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   },
   description:
     "THE SHRIKS is an independent systems studio and product venture building production-grade software, AI infrastructure, cloud platforms, blockchain systems, and proprietary products including LokiAI.",
-  metadataBase: new URL("https://theshriks.space"),
+  metadataBase: new URL("https://www.theshriks.space"),
   alternates: {
-    canonical: "https://theshriks.space",
+    canonical: "https://www.theshriks.space",
   },
   openGraph: {
     title: "The Shriks - System Architectures | AI & Software",

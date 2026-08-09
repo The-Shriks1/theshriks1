@@ -13,7 +13,7 @@ export function HomepageStructuredData() {
         "@id": ORG_ID,
         name: "THE SHRIKS",
         url: SITE_URL,
-        logo: `${SITE_URL}/brand/og-default.png`,
+        logo: `${SITE_URL}/brand/shriks-logo.png`,
         description:
           "THE SHRIKS is an independent systems studio and product venture building production-grade software, AI systems, cloud platforms, blockchain infrastructure, technical media, and proprietary products including LokiAI.",
         contactPoint: {
@@ -21,7 +21,7 @@ export function HomepageStructuredData() {
           email: "transmission@theshriks.space",
           contactType: "general enquiries",
         },
-        foundingDate: "2025",
+        foundingDate: "2026-02-22",
         founder: {
           "@type": "Person",
           name: "Laukik",
@@ -51,14 +51,6 @@ export function HomepageStructuredData() {
         description:
           "THE SHRIKS is an independent systems studio and product venture.",
         publisher: { "@id": ORG_ID },
-        potentialAction: {
-          "@type": "SearchAction",
-          target: {
-            "@type": "EntryPoint",
-            urlTemplate: `${SITE_URL}/?q={search_term_string}`,
-          },
-          "query-input": "required name=search_term_string",
-        },
       },
     ],
   };
@@ -107,12 +99,6 @@ export function LokiAIStructuredData() {
           {
             "@type": "ListItem",
             position: 2,
-            name: "Fleet",
-            item: `${SITE_URL}/fleet`,
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
             name: "LokiAI",
             item: `${SITE_URL}/fleet/lokiai`,
           },
